@@ -29,6 +29,7 @@ export const BRAND_NAME = 'إتش بي فاست للدهانات والديكو�
 export const BRAND_SHORT = 'HB FAST';
 export const PHONE_NUMBER = '+966508029328';
 export const WHATSAPP_NUMBER = '966508029328';
+export const TIKTOK_URL = 'https://www.tiktok.com/@oscar_paints05?_r=1&_t=ZS-9AFUwKqBfZk';
 
 export const SERVICES: ServiceItem[] = [
   {

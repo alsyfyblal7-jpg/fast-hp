@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { MessageCircle, Phone, ArrowUp, X, Sparkles } from 'lucide-react';
+import { MessageCircle, Phone, ArrowUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { PHONE_NUMBER, WHATSAPP_NUMBER } from '../data';
+import { PHONE_NUMBER, WHATSAPP_NUMBER, TIKTOK_URL } from '../data';
 
 export const FloatingActionWidget: React.FC = () => {
   const [showBackToTop, setShowBackToTop] = useState(false);
-  const [isTooltipOpen, setIsTooltipOpen] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
+      setShowBackToTop(window.scrollY > 350);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -20,72 +19,69 @@ export const FloatingActionWidget: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 left-6 z-40 flex flex-col items-center gap-3">
-      {/* Back to top button */}
+    <div 
+      className="fixed left-3 sm:left-5 top-1/2 -translate-y-1/2 z-50 flex flex-col items-center gap-3"
+      data-purpose="side-floating-buttons"
+    >
+      {/* 1. WhatsApp Button (Green) */}
+      <motion.a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('السلام عليكم إتش بي فاست، أرغب في استشارة ومعاينة مجانية لدهانات وتشطيبات منزلي بالرياض')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all cursor-pointer relative group"
+        title="تواصل واتساب مباشر"
+        aria-label="تواصل واتساب"
+      >
+        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" />
+        <MessageCircle className="w-6 h-6 fill-current relative z-10" />
+      </motion.a>
+
+      {/* 2. Direct Phone Call Button (Gold) */}
+      <motion.a
+        href={`tel:${PHONE_NUMBER}`}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-gradient-to-tr from-[#A67C00] via-[#C9A227] to-[#E8D48B] text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all cursor-pointer"
+        title="اتصال هاتفي مباشر: 0508029328"
+        aria-label="اتصال هاتفي مباشر"
+      >
+        <Phone className="w-5 h-5 fill-current" />
+      </motion.a>
+
+      {/* 3. TikTok Button (Black with official icon) */}
+      <motion.a
+        href={TIKTOK_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-black text-white flex items-center justify-center shadow-xl hover:shadow-2xl transition-all cursor-pointer border border-white/20 group"
+        title="تابعنا على تيك توك: @oscar_paints05"
+        aria-label="حساب تيك توك"
+      >
+        <svg className="w-6 h-6 fill-current group-hover:scale-110 transition-transform" viewBox="0 0 24 24">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.96-4.49V8.89a8.28 8.28 0 0 0 5.21 1.83V7.27a4.84 4.84 0 0 1-1.4-.58z"/>
+        </svg>
+      </motion.a>
+
+      {/* 4. Back to top button (Conditional upon scrolling) */}
       <AnimatePresence>
         {showBackToTop && (
           <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
+            exit={{ opacity: 0, scale: 0.6 }}
             onClick={scrollToTop}
-            className="w-11 h-11 rounded-full bg-[#1a1a2e] text-[#C9A227] hover:bg-[#C9A227] hover:text-[#1a1a2e] border border-white/20 shadow-xl flex items-center justify-center transition-all cursor-pointer group"
+            className="w-10 h-10 rounded-full bg-white text-slate-700 hover:text-[#C9A227] border border-slate-200 shadow-lg flex items-center justify-center transition-all cursor-pointer group mt-1"
             title="العودة للأعلى"
+            aria-label="العودة للأعلى"
           >
-            <ArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUp className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
           </motion.button>
         )}
       </AnimatePresence>
-
-      {/* Direct Phone Call Button */}
-      <a
-        href={`tel:${PHONE_NUMBER}`}
-        className="w-12 h-12 rounded-full bg-[#C9A227] text-[#1a1a2e] hover:bg-[#A67C00] shadow-xl flex items-center justify-center transition-transform hover:scale-110 active:scale-95 border-2 border-white/20"
-        title="اتصال مباشر: 0508029328"
-      >
-        <Phone className="w-5 h-5 fill-current" />
-      </a>
-
-      {/* WhatsApp Floating Button with Notification Bubble */}
-      <div className="relative">
-        <AnimatePresence>
-          {isTooltipOpen && (
-            <motion.div
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              className="absolute bottom-16 left-0 bg-[#1a1a2e] text-white p-3 rounded-2xl shadow-2xl border border-[#C9A227]/40 w-64 text-right"
-            >
-              <button
-                onClick={() => setIsTooltipOpen(false)}
-                className="absolute -top-1.5 -left-1.5 w-5 h-5 rounded-full bg-white/20 hover:bg-white/30 text-white flex items-center justify-center text-[10px]"
-              >
-                <X className="w-3 h-3" />
-              </button>
-              <div className="flex items-center gap-1.5 text-xs font-bold text-[#E8D48B] mb-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>مهندس إتش بي فاست (HB FAST) متاح الآن</span>
-              </div>
-              <p className="text-[11px] text-slate-300 leading-snug">
-                معاينة مجانية وعرض سعر فوري لكافة أحياء الرياض. تواصل معنا مباشرة!
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        <motion.a
-          href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('السلام عليكم إتش بي فاست، أرغب في استشارة ومعاينة مجانية لدهانات وتشطيبات منزلي بالرياض')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl relative group cursor-pointer"
-          title="تواصل واتساب"
-        >
-          <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-40 animate-ping pointer-events-none" />
-          <MessageCircle className="w-7 h-7 fill-current relative z-10" />
-        </motion.a>
-      </div>
     </div>
   );
 };
