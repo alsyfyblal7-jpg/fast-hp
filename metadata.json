@@ -1,0 +1,6 @@
+{
+  "name": "إتش بي فاست للدهانات والديكورات | HB Fast",
+  "description": "موقع إتش بي فاست للدهانات والديكورات الحديثة بالمملكة، لخدمات الدهانات الداخلية والخارجية والجبس بورد وبديل الرخام والخشب مع طلب معاينة مجانية.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
