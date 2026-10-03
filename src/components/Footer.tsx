@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
               </div>
               <div className="flex items-start gap-2.5">
                 <Clock className="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
-                <span>ساعات العمل: يومياً من الساعة 8:00 صباحاً حتى 10:00 مساءً.</span>
+                <span>ساعات العمل: يومياً من الساعة 8:00 صباحاً حتى 9:00 مساءً.</span>
               </div>
               <div className="flex items-center gap-2.5 pt-1 text-sm">
                 <Phone className="w-4 h-4 text-[#FF8A00] shrink-0" />
