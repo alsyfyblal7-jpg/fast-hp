@@ -111,6 +111,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
           <div>
             جميع الحقوق محفوظة © {currentYear} إتش بي فاست للدهانات والديكورات (HB Fast).
           </div>
+
+          {/* حقوق التطوير والبرمجة */}
+          <div className="text-slate-300 font-medium">
+            تطوير وبرمجة <span className="text-[#FF8A00] font-bold">بلال الصيفي</span>
+          </div>
+
           <div className="flex items-center gap-4">
             <a href="#consultation-form" className="hover:text-white transition">طلب مقايسة مجانية</a>
             <span>•</span>
