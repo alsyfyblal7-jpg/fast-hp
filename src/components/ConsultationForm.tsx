@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bell, ArrowLeft, CheckCircle2, MessageCircle, PhoneCall, ShieldCheck, Sparkles, Clock } from 'lucide-react';
+import { Bell, ArrowLeft, CheckCircle2, MessageCircle, PhoneCall, ShieldCheck, Sparkles, Clock, Loader2 } from 'lucide-react';
 import { PHONE_NUMBER, WHATSAPP_NUMBER } from '../data';
 
 interface ConsultationFormProps {
@@ -17,12 +17,10 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
   const [cityNeighborhood, setCityNeighborhood] = useState('الرياض');
   const [notes, setNotes] = useState(initialNote);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !phone.trim()) return;
-    setIsSubmitted(true);
-  };
+  // 🔗 رابط Google Apps Script الخاصة بك
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRWln7kATL0aQquuO9aIyfrHrZ2VukcYPzBk-aTQJFxYQqXWuC8q5lC8KEeEnRVoeJ-Q/exec";
 
   const getServiceName = (val: string) => {
     switch (val) {
@@ -33,6 +31,37 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
       case 'full-renovation': return 'تشطيب وتجديد كامل للمنزل';
       case 'waterproofing': return 'عزل أسطح ومعالجة رطوبة';
       default: return val;
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name.trim() || !phone.trim()) return;
+
+    setLoading(true);
+
+    try {
+      // إرسال البيانات إلى Google Apps Script Webhook
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          service: getServiceName(service),
+          notes: `المدينة/الحي: ${cityNeighborhood}${notes ? ` | ملاحظات: ${notes}` : ''}`,
+        }),
+      });
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('حدث خطأ أثناء إرسال الطلب، يرجى المحاولة مرة أخرى.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -47,9 +76,8 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Right Column: Promotional & Assurance Info (5 cols on lg) */}
+          {/* Right Column: Promotional & Assurance Info */}
           <div className="lg:col-span-5 text-right">
-            {/* Accent badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 text-[#FF8A00] text-xs sm:text-sm font-bold mb-4">
               <Bell className="w-4 h-4 fill-current animate-bounce" />
               <span>عرض محدود: معاينة وتصميم 3D مجاناً</span>
@@ -62,7 +90,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
               أدخل بياناتك وسيقوم مهندس التشطيبات بالتواصل معك في غضون 30 دقيقة لرفع المقاسات وعرض الكتالوجات الحقيقية بالموقع بدون أي التزام مالي.
             </p>
 
-            {/* Value checklist */}
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-xl bg-blue-100 text-[#0052B4] flex items-center justify-center shrink-0 mt-0.5">
@@ -95,7 +122,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
               </div>
             </div>
 
-            {/* Direct hotline */}
             <div className="pt-6 border-t border-slate-200/80 flex items-center gap-4 text-xs sm:text-sm text-slate-600">
               <div className="font-bold">أو تواصل مباشرة عبر الهاتف:</div>
               <a 
@@ -108,7 +134,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </div>
           </div>
 
-          {/* Left Column: Interactive Lead Capture Form (7 cols on lg) */}
+          {/* Left Column: Interactive Lead Capture Form */}
           <div className="lg:col-span-7 bg-white p-6 sm:p-8 lg:p-10 rounded-3xl shadow-card border border-slate-100">
             {isSubmitted ? (
               <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 sm:p-8 text-center animate-in zoom-in-95 duration-200">
@@ -147,7 +173,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
             ) : (
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Input: Name */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5" htmlFor="clientName">
                       الاسم الكريم <span className="text-red-500">*</span>
@@ -163,7 +188,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                     />
                   </div>
 
-                  {/* Input: Phone Number */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5" htmlFor="clientPhone">
                       رقم الجوال (واتساب) <span className="text-red-500">*</span>
@@ -182,7 +206,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Input: City / District */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5" htmlFor="clientCity">
                       المدينة / الحي
@@ -197,7 +220,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                     />
                   </div>
 
-                  {/* Input: Service Selected */}
                   <div>
                     <label className="block text-xs font-bold text-slate-700 mb-1.5" htmlFor="serviceType">
                       الخدمة المطلوبة
@@ -218,7 +240,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   </div>
                 </div>
 
-                {/* Optional Notes */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 mb-1.5" htmlFor="clientNotes">
                     ملاحظات أو مواصفات إضافية (اختياري)
@@ -233,13 +254,22 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   />
                 </div>
 
-                {/* Submit Button */}
                 <button 
                   type="submit" 
-                  className="w-full py-4 rounded-2xl bg-[#FF8A00] hover:bg-[#E57900] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-glow-orange active:scale-98 transition mt-3 flex items-center justify-center gap-2 cursor-pointer"
+                  disabled={loading}
+                  className="w-full py-4 rounded-2xl bg-[#FF8A00] hover:bg-[#E57900] text-white font-extrabold text-sm sm:text-base tracking-wide shadow-glow-orange active:scale-98 transition mt-3 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
                 >
-                  <span>تأكيد طلب المعاينة الفنية المجانية</span>
-                  <ArrowLeft className="w-5 h-5 rtl:rotate-0" />
+                  {loading ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>جاري إرسال الطلب...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>تأكيد طلب المعاينة الفنية المجانية</span>
+                      <ArrowLeft className="w-5 h-5 rtl:rotate-0" />
+                    </>
+                  )}
                 </button>
 
                 <p className="text-xs text-center text-slate-400 mt-2">
