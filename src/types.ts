@@ -3,10 +3,10 @@ export interface ServiceItem {
   title: string;
   badge?: string;
   description: string;
-  iconType: 'paint' | 'gypsum' | 'panels' | 'shield';
-  colorClass: string;
-  bgClass: string;
-  features: string[];
+  imageUrl?: string;
+  keywords?: string[];
+  features?: string[];
+  iconType?: 'paint' | 'gypsum' | 'panels' | 'shield' | 'floor' | 'renovation' | 'tools' | 'star';
 }
 
 export interface ColorSwatch {
@@ -30,6 +30,14 @@ export interface ProjectItem {
   imageUrl: string;
   duration: string;
   specs: string[];
+}
+
+export interface ArticleItem {
+  id: string;
+  title: string;
+  excerpt: string;
+  readTime: string;
+  tag: string;
 }
 
 export interface Testimonial {

@@ -85,13 +85,13 @@ export const LiveActivityToasts: React.FC = () => {
               <X className="w-3 h-3" />
             </button>
 
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-[#FF8A00] text-white flex items-center justify-center shrink-0 shadow-xs mt-0.5">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#A67C00] to-[#C9A227] text-[#1a1a2e] flex items-center justify-center shrink-0 shadow-xs mt-0.5">
               {current.type === 'delivery' ? (
-                <ShieldCheck className="w-5 h-5" />
+                <ShieldCheck className="w-5 h-5 text-white" />
               ) : current.type === 'order' ? (
-                <Sparkles className="w-5 h-5" />
+                <Sparkles className="w-5 h-5 text-white" />
               ) : (
-                <MapPin className="w-5 h-5" />
+                <MapPin className="w-5 h-5 text-white" />
               )}
             </div>
 

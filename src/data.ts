@@ -1,73 +1,132 @@
-import { ColorSwatch, ProjectItem, ServiceItem, Testimonial } from './types';
+import { ColorSwatch, ProjectItem, ServiceItem, Testimonial, ArticleItem } from './types';
 
-// Asset URLs directly from the user's provided HTML code
 export const ASSETS = {
-  headerLogo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCwlr_WR9V77pCuKR491fqfl2UWCFNfy9bUsvJMqSs0LlqH-Q8sUbDLbWkTeq6iwqIdoTZOIj_PjKlUYhFnLhKJCDarvQzKx-ZRONEYJOqbsco2JOolX9bgvlvGObFz9ndukygoC45AuyU4AZZy37SWzhK91qeJpx68gMfvPW9mhXiMvrOLHUf3d7VTseag6uDeb-90CYdziOgw7zVAoCWRSu1fK7XCDWb-af_lmPRr4v_PCO-Y4tJLzjx4aUnzvG1hfU4',
+  // Official HB Fast Logo uploaded by the user
+  logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCwlr_WR9V77pCuKR491fqfl2UWCFNfy9bUsvJMqSs0LlqH-Q8sUbDLbWkTeq6iwqIdoTZOIj_PjKlUYhFnLhKJCDarvQzKx-ZRONEYJOqbsco2JOolX9bgvlvGObFz9ndukygoC45AuyU4AZZy37SWzhK91qeJpx68gMfvPW9mhXiMvrOLHUf3d7VTseag6uDeb-90CYdziOgw7zVAoCWRSu1fK7XCDWb-af_lmPRr4v_PCO-Y4tJLzjx4aUnzvG1hfU4',
   footerLogo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBMw_f4j9ZsOh_4g_PnJwzhBPGj0CHR0e1SWKQ13sOunlXBWFhySDNY7h6gAVG_zSnfUmfEjbJOHJsP-uv7bIin5jhftTPDdJKFYW2f3vudHOepr95e1KxPM8MxAkTrOEcs4dXtJ0jkRP3mtd6KCw0CHp5QbY0lt4yl0veq1iL-2iu7Gf_zdZcGvoxYc9A4FRqzaIdOrEQS2CfCWvhqemaDaIPBKw7C0OOJcxidm9LXmDsba0ve6pjdVkUrlO4lZnKFdiQ',
-  project1: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBx5AfnnJVqUbBIFyxQO6koR7mqIlHa_mtQjunCa5Ml6evm9sKvPFcTt35XRjZyJ49Y50HI9ZLRwnu94SKra2HepknHGjRDgTSBlxhfQlgw8jUXrmksvBuGZR978JdBEF7doQ-lUJJlzlexLCjPHAKSVFNiujrufM5ZzFFnSE8-x-we6hwIkABsbwgRRZD3JK3gie8HAOU8sqNAhwn_lAsCEtbYILB4MaaaeaemkSJLtPa-piw4BWe13A',
-  project2: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCn_ysG7c4KTc5dvKjtc4fB6378vD92o4TnvtT7pqZdx52G-aQ9wl1iGCgz6Z8MINb1vGG-RdWjsJXlGxoXvzLdZkPgo2MCoZJXQhjbdnnr087Qic-KdlqAHnCemFcBRJPNHbtcfvK6ILDQ-1w51E2j6jJjOj55n97fJXxcsf6w_rIlwNnZWkKtuZUmGK1SCakakXIcx-6EAQb9kXXelWyYzBtT8oUsux3G8yIMiF6MgFW6omvMZHKCSg',
+  // Background and showcase assets from the new site design
+  heroBg: 'https://tarmim-decor.com/images/best-contractor-decor-paints-riyadh.webp',
+  interiorPaints: 'https://tarmim-decor.com/images/interior-painting-services-riyadh.webp',
+  exteriorPaints: 'https://tarmim-decor.com/images/exterior-paints-facades-riyadh.webp',
+  chipboard: 'https://tarmim-decor.com/images/chipboard-installation-riyadh.webp',
+  marbleAlt: 'https://tarmim-decor.com/images/marble-alternative-installation-riyadh.webp',
+  woodAlt: 'https://tarmim-decor.com/images/wpc-wood-alternative-riyadh.webp',
+  foam: 'https://tarmim-decor.com/images/foam-decorations-riyadh.webp',
+  gypsum: 'https://tarmim-decor.com/images/gypsum-board-installation-riyadh.webp',
+  wallpaper: 'https://tarmim-decor.com/images/wallpaper-installation-riyadh.webp',
+  parquet: 'https://tarmim-decor.com/images/parquet-flooring-installation-riyadh.webp',
+  painter: 'https://tarmim-decor.com/images/professional-painter-riyadh.webp',
+  renovation: 'https://tarmim-decor.com/images/home-renovation-services-riyadh.webp',
+  insulation: 'https://tarmim-decor.com/images/roof-insulation-services-riyadh.webp',
+  // Projects
+  projNarjis: 'https://tarmim-decor.com/images/villa-renovation-project-narjis-riyadh.webp',
+  projMalqa: 'https://tarmim-decor.com/images/villa-finishing-project-malqa.webp',
+  projYasmin: 'https://tarmim-decor.com/images/apartment-renewal-project-yasmin.webp',
+  projFacade: 'https://tarmim-decor.com/images/villa-facade-profile-paint-north-riyadh.webp',
 };
 
+export const BRAND_NAME = 'إتش بي فاست للدهانات والديكورات';
+export const BRAND_SHORT = 'HB FAST';
 export const PHONE_NUMBER = '+966508029328';
 export const WHATSAPP_NUMBER = '966508029328';
 
 export const SERVICES: ServiceItem[] = [
   {
     id: 'interior-paints',
-    title: 'دهانات داخلية وخارجية',
+    title: 'دهانات داخلية فاخرة',
     badge: 'الأكثر طلباً',
-    description: 'تنفيذ أحدث ألوان المودرن السادة، البويات الديكورية (مارمو، روشن، خيال)، والبروفايل ومقاومات العوامل الجوية الخارجية.',
-    iconType: 'paint',
-    colorClass: 'text-[#0052B4]',
-    bgClass: 'bg-blue-100/80',
-    features: [
-      'دهانات مائية وبلاستيكية صديقة للبيئة بدون رائحة',
-      'تعتيق وديكورات ملمس الرخام والخيال والروشن',
-      'بروفايل خارجي عازل للحرارة والرطوبة وأشعة الشمس',
-      'معالجة وتأسيس الجدران وسحب معجون على أعلى مستوى'
-    ]
+    imageUrl: ASSETS.interiorPaints,
+    description: 'أحدث تقنيات الدهانات الداخلية باستخدام أفضل الماركات الأصلية مثل أوسكار والجزيرة، مع تشطيبات ناعمة وخالية من العيوب وثبات ألوان يدوم طويلاً.',
+    keywords: ['دهان جدران', 'ألوان عصرية', 'تشطيب ناعم'],
+    features: ['دهانات أوسكار الأصلية والجزيرة', 'تأسيس احترافي وسحب معجون ناعم', 'مقاوم للبقع وقابل للغسيل', 'بدون أي روائح نفاذة وآمن للعائلة']
   },
   {
-    id: 'gypsum-decor',
-    title: 'جبس بورد وأسقف معلقة',
-    description: 'تصميم وتركيب الأسقف المستعارة، بيوت النور، الإضاءات المخفية، وتشكيلات الحوائط للشاشات والصالونات الفاخرة.',
-    iconType: 'gypsum',
-    colorClass: 'text-[#FF8A00]',
-    bgClass: 'bg-orange-100/80',
-    features: [
-      'أسقف فرنسية مستعارة مع بيوت نور مخفية',
-      'تصميم مكتبات شاشات وبديل رخام مدمج بالجبس',
-      'مقاومة فائقة للرطوبة والحرائق',
-      'تسليم بميزان ليزر لضمان الاستواء التام'
-    ]
+    id: 'exterior-paints',
+    title: 'دهانات خارجية وواجهات',
+    imageUrl: ASSETS.exteriorPaints,
+    description: 'دهانات خارجية متخصصة لواجهات الفلل والمباني التجارية في حي النرجس والملقا ومناطق شمال الرياض، مقاومة للحرارة والأشعة فوق البنفسجية.',
+    keywords: ['بروفايل', 'واجهات فلل', 'مقاوم للحرارة'],
+    features: ['دهان بروفايل ألماني عالي التحمل', 'كسر رخام طبيعي فاخر', 'مقاومة الرطوبة وحرارة الشمس', 'ضمان رسمي على ثبات اللون']
   },
   {
-    id: 'marble-wood-alt',
-    title: 'بديل الرخام وبديل الخشب',
-    description: 'تركيب شرائح الخشب المعالج (WPC)، ألواح بديل الرخام ثلاثية الأبعاد، وتكسيات الجدران وورق الحائط الكوري الفاخر.',
-    iconType: 'panels',
-    colorClass: 'text-sky-700',
-    bgClass: 'bg-sky-100',
-    features: [
-      'ألواح PVC عازلة ومقاومة للماء والخدش',
-      'شرائح WPC خشبية بملمس طبيعي وألوان متعددة',
-      'تطعيم بأشرطة ستيل ذهبية وفضية وإضاءة ليد مخفية',
-      'تثبيت احترافي بمواد لاصقة قوية بدون تشويه الجدار'
-    ]
+    id: 'chipboard',
+    title: 'تركيب الشيبورد',
+    imageUrl: ASSETS.chipboard,
+    description: 'تصاميم عصرية باستخدام ألواح الشيبورد لخلفيات التلفزيون والمجالس والمكاتب، بتشكيلة واسعة من الألوان تضفي لمسة عصرية على منزلك.',
+    keywords: ['خلفيات تلفزيون', 'ديكور مجالس', 'ألواح حديثة'],
+    features: ['تصاميم خلفيات شاشة مودرن', 'دمج بروفايل ليد مخفي', 'مقاوم للخدش وسهل التنظيف', 'تركيب متقن ودقيق بميزان ليزر']
   },
   {
-    id: 'waterproofing',
-    title: 'عزل الأسطح ومعالجة الرطوبة',
-    description: 'حلول جذرية لتقشير الدهان، معالجة الشروخ والتشققات، والعزل المائي والحراري للأسطح والواجهات بضمان معتمد.',
-    iconType: 'shield',
-    colorClass: 'text-indigo-700',
-    bgClass: 'bg-indigo-100',
-    features: [
-      'كشف ومعالجة أسباب الرطوبة قبل الدهان النهائي',
-      'عزل مائي وحراري للأسطح والمسابح والحمامات',
-      'معالجة التشققات الإنشائية بمعجون ألماني مطاطي',
-      'ضمان خطي معتمد على عدم عودة الرطوبة'
-    ]
+    id: 'marble-alt',
+    title: 'بديل الرخام الفاخر',
+    imageUrl: ASSETS.marbleAlt,
+    description: 'ألواح بديل الرخام تمنح مجالسك ومداخل منزلك فخامة الحجر الطبيعي بتكلفة اقتصادية، مقاومة للماء والخدش وسهلة التنظيف بألوان جذابة.',
+    keywords: ['تكسيات جدارية', 'فخامة الرخام', 'مداخل أنيقة'],
+    features: ['مظهر الحجر الطبيعي اللامع', 'مقاومة 100% للرطوبة والماء', 'دمج مع شرائح الاستيل الذهبي', 'سماكات عالية ولمعان كريستالي']
+  },
+  {
+    id: 'wood-alt',
+    title: 'بديل الخشب WPC',
+    imageUrl: ASSETS.woodAlt,
+    description: 'تكسيات جدارية خارجية وداخلية من بديل الخشب الكوري المعالج، مقاومة للماء والحشرات والرطوبة، تمنح منزلك مظهراً طبيعياً دافئاً.',
+    keywords: ['خشب معالج', 'مقاوم للماء', 'واجهات خشبية'],
+    features: ['شرائح WPC عالية الجودة', 'عزل حراري وصوتي إضافي', 'مظهر خشبي طبيعي بدون صيانة', 'مثالي للواجهات ومداخل الفلل']
+  },
+  {
+    id: 'foam-decor',
+    title: 'ديكورات الفوم والبانوهات',
+    imageUrl: ASSETS.foam,
+    description: 'براويز فوم بديل الجبس بتصاميم كلاسيكية ونيوكلاسيكية فاخرة، خفيفة الوزن وسهلة التركيب، تضفي رقياً وأناقة على جدران الصالات والمجالس.',
+    keywords: ['براويز فوم', 'بانوهات جدارية', 'ديكور كلاسيك'],
+    features: ['إطارات وبانوهات نيوكلاسيك أنيقة', 'دهان مطابق للون الجدار', 'مقاومة للرطوبة والتشقق', 'أبعاد متناسقة وموزونة هندسياً']
+  },
+  {
+    id: 'gypsum-board',
+    title: 'أسقف الجبس بورد',
+    imageUrl: ASSETS.gypsum,
+    description: 'تصميم وتركيب أسقف معلقة وبيوت نور مخفية بتصاميم عصرية ومودرن تخفي التمديدات وتبرز جمال المكان بإضاءة LED خفية وساحرة.',
+    keywords: ['أسقف معلقة', 'إضاءة مخفية', 'جبس مودرن'],
+    features: ['جبس فرنسي مقاوم للرطوبة والحرائق', 'توزيع إضاءة ليد مخفية وبيوت نور', 'تثبيت هياكل حديد مجلفن متينة', 'تشطيب أملس جاهز للدهان النهائي']
+  },
+  {
+    id: 'wallpaper',
+    title: 'ورق جدران ثلاثي الأبعاد',
+    imageUrl: ASSETS.wallpaper,
+    description: 'تشكيلة واسعة من ورق الجدران ثلاثي الأبعاد بتصاميم إيطالية وكورية فاخرة، سهل التركيب ومقاوم للرطوبة لغرف النوم والمجالس.',
+    keywords: ['ورق 3D', 'تصاميم فاخرة', 'سهل التركيب'],
+    features: ['خامات أوروبية وكورية قابلة للمسح', 'مقاومة للرطوبة وتغير الألوان', 'تنسيق متقن للدرزات والفواصل', 'تأثيرات ثلاثية الأبعاد جذابة']
+  },
+  {
+    id: 'parquet',
+    title: 'تركيب الباركيه',
+    imageUrl: ASSETS.parquet,
+    description: 'أرضيات باركيه فاخرة من الخشب الطبيعي والصناعي بمقاومة عالية للخدش والرطوبة، بتشكيلة واسعة تتناسب مع كافة الديكورات المودرن.',
+    keywords: ['أرضيات خشبية', 'باركيه طبيعي', 'مقاوم للخدش'],
+    features: ['باركيه ألماني وتركي عالي الكثافة', 'طبقة عازلة للصوت والحرارة', 'مقاومة لحركة الأثاث والماء', 'نعلات جدارية مطابقة بالكامل']
+  },
+  {
+    id: 'paints-master',
+    title: 'معلم أصباغ محترف',
+    imageUrl: ASSETS.painter,
+    description: 'فريق من أمهر معلمي الأصباغ بالرياض بخبرة تفوق 10 سنوات في كافة أنواع الدهانات والتعتيق والتدرجات اللونية الحديثة بدقة واحترافية.',
+    keywords: ['معلم دهان', 'خبرة طويلة', 'عمل متقن'],
+    features: ['خبرة تزيد عن عقد في مشاريع الرياض', 'سرعة إنجاز فائقة وتسليم بالموعد', 'نظافة تامة للمكان وحماية الأرضيات', 'استشارات لاختيار درجات الإضاءة']
+  },
+  {
+    id: 'renovation',
+    title: 'ترميم وتشطيب شامل',
+    imageUrl: ASSETS.renovation,
+    description: 'خدمة تسليم مفتاح متكاملة تشمل كافة أعمال الترميم والتجديد من الألف إلى الياء، نستلم منزلك أو فيلتك ونسلمها جديدة ومطورة بالكامل.',
+    keywords: ['ترميم منازل', 'تشطيب كامل', 'تسليم مفتاح'],
+    features: ['إعادة تأهيل الشقق والفلل القديمة', 'معالجة الشروخ والسباكة والكهرباء', 'تحديث الديكورات وفق طراز 2025', 'إشراف هندسي وضمان شامل 5 سنوات']
+  },
+  {
+    id: 'roof-insulation',
+    title: 'عزل الأسطح والتسربات',
+    imageUrl: ASSETS.insulation,
+    description: 'عزل مائي وحراري معتمد للأسطح والمسابح والخزانات، لحماية المبنى من حرارة صيف الرياض الشديدة ومنع تسربات مياه الأمطار والرطوبة.',
+    keywords: ['عزل مائي', 'عزل فوم', 'معالجة تسربات'],
+    features: ['عزل فوم بولي يوريثان معتمد', 'عزل مائي مطاطي للأسطح', 'حماية الخرسانة من التآكل والرطوبة', 'توفير يصل إلى 40% في فاتورة الكهرباء']
   }
 ];
 
@@ -100,52 +159,88 @@ export const COLOR_PALETTE: ColorSwatch[] = [
     recommendedFor: 'الفلل العصرية، المكاتب، ومداخل الشقق'
   },
   {
-    id: 'royal-blue',
-    name: 'رويال بلو',
-    nameEn: 'HB Royal',
-    hex: '#003D8C',
+    id: 'royal-navy',
+    name: 'أزرق فاست الملكي',
+    nameEn: 'HB Fast Blue',
+    hex: '#0052B4',
     textColor: 'text-white',
-    description: 'لون الجدار المميز (Feature Wall)، يضفي لمسة فندقية باذخة مع الإنارة الذهبية الخافتة.',
-    recommendedFor: 'جدار خلفية السرير، جدار الشاشة، وغرف الاجتماعات'
+    description: 'اللون المميز لهوية إتش بي فاست، يضفي عمقاً فندقياً وفخامة استثنائية.',
+    recommendedFor: 'جدار الشاشة، المكاتب، ومجالس الضيوف'
   }
 ];
 
 export const PROJECTS: ProjectItem[] = [
   {
     id: 'proj-1',
-    title: 'دهانات داخلية فاخرة مع جبس بورد وإنارة خفية',
-    category: 'interior',
-    categoryLabel: 'دهانات داخلية',
-    location: 'فيلا مودرن • الرياض',
-    badge: 'تم التسليم بالضمان',
-    description: 'استخدام دهانات مقاومة للبقع بدرجات الجريج المودرن مع دمج بديل الخشب للجدار الرئيسي.',
-    imageUrl: ASSETS.project1,
-    duration: '4 أيام عمل',
-    specs: ['خامات أوسكار الفاخرة', 'جبس بورد مقاوم للرطوبة', 'إنارة ليد وورم مخفية']
+    title: 'ترميم فيلا بحي النرجس',
+    category: 'all',
+    categoryLabel: 'ترميم كامل',
+    location: 'الرياض - حي النرجس',
+    badge: 'تسليم بالضمان 5 سنوات',
+    description: 'ترميم شامل لفيلا سكنية شمل دهانات أوسكار الداخلية، بديل الخشب WPC للواجهات والمدخل، وتركيب أسقف جبس بورد مع إنارة مخفية.',
+    imageUrl: ASSETS.projNarjis,
+    duration: '6 أيام عمل',
+    specs: ['دهانات أوسكار المقاومة للبقع', 'بديل خشب كوري معالج', 'إنارة ليد مخفية 3000K']
   },
   {
     id: 'proj-2',
-    title: 'تنسيق متكامل لبديل الرخام وألواح الـ WPC',
+    title: 'تشطيب فيلا بحي الملقا',
     category: 'decor',
-    categoryLabel: 'بديل رخام وخشب',
-    location: 'مجلس رئيسي • شقة راقية',
-    badge: 'تسليم فندقي',
-    description: 'إضفاء طابع فندقي فاخر عبر دمج البروفايل الليد المخفي مع العروق الذهبية.',
-    imageUrl: ASSETS.project2,
-    duration: 'يومان عمل',
-    specs: ['ألواح بديل رخام عالي اللمعان', 'شرائح WPC خشبية', 'ستيل ذهبي مقاوم للصدأ']
+    categoryLabel: 'ديكورات وجبس بورد',
+    location: 'الرياض - حي الملقا',
+    badge: 'طراز فندقي فاخر',
+    description: 'تنفيذ تكسيات بديل الرخام خلفيات التلفزيون والصالون الرئيسي مع إطارات فوم نيوكلاسيك وأرضيات باركيه فاخرة.',
+    imageUrl: ASSETS.projMalqa,
+    duration: '4 أيام عمل',
+    specs: ['بديل رخام عروق ذهبية', 'بانوهات فوم ألمانية', 'باركيه ألماني عالي الكثافة']
   },
   {
     id: 'proj-3',
-    title: 'تجديد دهانات شقة سكنية متكاملة وسحب معجون',
+    title: 'تجديد شقة بحي الياسمين',
     category: 'interior',
-    categoryLabel: 'دهانات داخلية',
-    location: 'حي النرجس • الرياض',
-    badge: 'تسليم في 48 ساعة',
-    description: 'تجديد شامل مع تغليف كامل للأثاث والأرضيات ودهان باليتة أوف وايت المهدئة.',
-    imageUrl: ASSETS.project1,
+    categoryLabel: 'دهانات وديكور',
+    location: 'الرياض - حي الياسمين',
+    badge: 'إنجاز في 48 ساعة',
+    description: 'سحب معجون ناعم ودهان كامل أوف وايت وجريج مودرن مع تغليف كامل للأثاث وتسليم نظيف تماماً بدون أي روائح.',
+    imageUrl: ASSETS.projYasmin,
     duration: '48 ساعة فقط',
-    specs: ['دهانات بدون رائحة', 'حماية تامة للأرضيات', 'ضمان 5 سنوات']
+    specs: ['دهانات أوسكار بدون رائحة', 'تغليف أثاث احترافي', 'حماية تامة للأرضيات']
+  },
+  {
+    id: 'proj-4',
+    title: 'واجهة فيلا بشمال الرياض',
+    category: 'exterior',
+    categoryLabel: 'دهانات خارجية',
+    location: 'شمال الرياض - حي الصحافة',
+    badge: 'مقاوم للعوامل الجوية',
+    description: 'تنفيذ دهان بروفايل خارجي عالي المتانة ومقاوم لأشعة الشمس والحرارة مع تطعيمات حجرية وتكسيات WPC عصرية.',
+    imageUrl: ASSETS.projFacade,
+    duration: '5 أيام عمل',
+    specs: ['بروفايل مقاوم للأشعة فوق البنفسجية', 'عزل مائي للواجهة', 'ضمان رسمي 5 سنوات']
+  }
+];
+
+export const ARTICLES: ArticleItem[] = [
+  {
+    id: 'art-1',
+    title: 'أحدث صيحات الدهانات في الرياض 2025',
+    excerpt: 'تعرف على الدرجات اللونية الأكثر طلباً هذا العام، وكيف تختار بين الأوف وايت والجريج لتوسيع المساحات وإبراز الإضاءة.',
+    readTime: '3 دقائق قراءة',
+    tag: 'نصائح الدهانات'
+  },
+  {
+    id: 'art-2',
+    title: 'مميزات بديل الرخام وبديل الخشب',
+    excerpt: 'مقارنة شاملة بين الحجر الطبيعي والبدائل الحديثة من حيث التكلفة، سهولة التركيب، الصيانة، ومقاومة الرطوبة في منازل الرياض.',
+    readTime: '4 دقائق قراءة',
+    tag: 'ديكورات عصرية'
+  },
+  {
+    id: 'art-3',
+    title: 'أهمية العزل المائي والحراري للمنازل بالرياض',
+    excerpt: 'كيف يحمي عزل الفوم والأسطح مبناك من تسربات مياه الأمطار ويخفض فاتورة التكييف والكهرباء بنسبة تصل إلى 40%.',
+    readTime: '3 دقائق قراءة',
+    tag: 'عزل وحماية'
   }
 ];
 
@@ -156,7 +251,7 @@ export const TESTIMONIALS: Testimonial[] = [
     city: 'الرياض - حي حطين',
     role: 'مالك فيلا سكنية',
     rating: 5,
-    comment: 'ما شاء الله سرعة إنجاز لا تصدق في إتش بي فاست! تم دهان الفيلا بالكامل وتثبيت بديل الرخام في 4 أيام وبنظافة تامة للمكان بدون أي نقطة بوية على البلاط.',
+    comment: 'ما شاء الله سرعة إنجاز وجودة لا تصدق في إتش بي فاست! تم دهان الفيلا بالكامل وتثبيت بديل الرخام والشيبورد في 4 أيام وبنظافة تامة للمكان بدون أي نقطة بوية على البلاط.',
     projectType: 'تشطيب فيلا كاملة'
   },
   {
@@ -181,19 +276,23 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const FAQS = [
   {
-    q: 'هل المعاينة الفنية مجانية بالفعل ولا تترتب عليها أي التزامات؟',
-    a: 'نعم تماماً! يقوم مهندسنا بزيارة موقعك بالرياض أو المناطق المجاورة، ورفع المقاسات بدقة، وعرض كتالوجات الألوان الحقيقية وتقديم عرض سعر تفصيلي مجاناً 100% وبدون أي التزام.'
+    q: 'ما هي الأحياء والمناطق التي تخدمونها في الرياض؟',
+    a: 'نخدم جميع أحياء العاصمة الرياض وضواحيها، مع تركيز خاص وسرعة وصول في أحياء شمال وشرق وغرب الرياض (حي النرجس، الملقا، الياسمين، الصحافة، حطين، العارض، وغيرها).'
   },
   {
-    q: 'كم يستغرق دهان شقة عادية 3 إلى 4 غرف وصالة؟',
-    a: 'بفضل طواقم العمل المتخصصة ونظام العمل السريع (FAST)، ننجز الشقة خلال 48 إلى 72 ساعة كحد أقصى مع التغليف الاحترافي والتنظيف بعد الانتهاء.'
+    q: 'هل المعاينة والاستشارة الفنية مجانية بالفعل؟',
+    a: 'نعم تماماً! زيارة مهندس التشطيبات لموقعك، ورفع المقاسات بدقة، وعرض كتالوجات الألوان وخامات بديل الرخام والخشب وتقديم عرض سعر تفصيلي كلها مجانية 100% بدون أي التزام مالي.'
   },
   {
-    q: 'هل توفرون ضماناً خطياً على الأعمال؟',
-    a: 'نعم، نقدم شهادة ضمان رسمي معتمد لمدة تصل إلى 5 سنوات تشمل ثبات الألوان، عدم تشقق المعجون، وجودة التركيب.'
+    q: 'ما هي مدة الضمان المقدمة على أعمال الدهانات والديكور؟',
+    a: 'نقدم شهادة ضمان رسمي معتمد تصل إلى 5 سنوات، تشمل ثبات الألوان وعدم تقشر الدهان وجودة تثبيت بديل الرخام والخشب والجبس بورد.'
   },
   {
-    q: 'هل الخامات المستخدمة بدون روائح وآمنة للأطفال؟',
-    a: 'نعتمد فقط المنتجات الأصلية عالية الجودة (أوسكار، الجزيرة) التي تتوافق مع أعلى المعايير الصحية والبيئية بدون أي روائح نفاذة تضر بالحوامل أو الأطفال أو مرضى الحساسية.'
+    q: 'ما هي أفضل أنواع الدهانات المعتمدة لديكم؟',
+    a: 'نستخدم كبرى العلامات المعتمدة مثل دهانات أوسكار الأصلية والجزيرة، دهانات صديقة للبيئة بدون روائح، قابلة للغسيل والمسح ومقاومة للبقع والرطوبة.'
+  },
+  {
+    q: 'كم يستغرق تشطيب أو ترميم شقة أو فيلا بالرياض؟',
+    a: 'بفضل نظام العمل السريع FAST وطواقم العمل المدربة، تستغرق الشقة السكنية ما بين 48 ساعة إلى 3 أيام عمل، والفلل بين 4 إلى 7 أيام عمل، مع تسليم نظيف وتغليف كامل للأثاث.'
   }
 ];

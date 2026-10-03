@@ -100,14 +100,14 @@ export const InteractivePaintStudio: React.FC<InteractivePaintStudioProps> = ({
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" data-purpose="interactive-paint-studio">
-      <div className="bg-gradient-to-br from-slate-900 via-[#00255A] to-slate-900 rounded-3xl lg:rounded-[3rem] p-6 sm:p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden border border-blue-500/20">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24" data-purpose="interactive-paint-studio" id="interactive-studio">
+      <div className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#1a1a2e] rounded-3xl lg:rounded-[3rem] p-6 sm:p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden border border-[#C9A227]/30">
         
         {/* Animated Background Ambience */}
         <motion.div 
           animate={{ rotate: 360 }}
           transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
-          className="absolute -top-32 -right-32 w-80 h-80 bg-[#FF8A00]/20 rounded-full blur-3xl pointer-events-none"
+          className="absolute -top-32 -right-32 w-80 h-80 bg-[#C9A227]/20 rounded-full blur-3xl pointer-events-none"
         />
 
         {/* Section Title */}
@@ -116,16 +116,16 @@ export const InteractivePaintStudio: React.FC<InteractivePaintStudioProps> = ({
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FF8A00]/20 text-amber-300 text-xs sm:text-sm font-bold border border-[#FF8A00]/30 mb-3"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C9A227]/20 text-[#E8D48B] text-xs sm:text-sm font-bold border border-[#C9A227]/40 mb-3"
           >
-            <PaintRoller className="w-4 h-4 text-[#FF8A00] animate-bounce" />
+            <PaintRoller className="w-4 h-4 text-[#C9A227] animate-bounce" />
             <span>تجربة حية تفاعلية: استوديو دهان الجدار</span>
           </motion.div>
           <h2 className="text-2xl sm:text-4xl font-black text-white">
-            جرّب ادهن الجدار بنفسك بدهانات أوسكار!
+            جرّب ادهن الجدار بنفسك بدهانات أوسكار والجزيرة!
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 mt-2">
-            اختر لونك المفضل، واسحب رول الدهان بيدك أو بالماوس لتجربة تغطية الجدران وإحساس الألوان الفندقية
+            اختر لونك المفضل، واسحب رول الدهان بيدك أو بالماوس لتجربة تغطية الجدران وإحساس الألوان الفندقية بالرياض
           </p>
         </div>
 

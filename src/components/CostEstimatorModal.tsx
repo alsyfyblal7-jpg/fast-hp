@@ -26,24 +26,24 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
 
   const getServiceLabel = () => {
     switch (serviceType) {
-      case 'plain': return 'دهانات داخلية سادة ومودرن (أوسكار)';
-      case 'decor': return 'بويات ديكورية وتعتيق (روشن، خيال)';
-      case 'gypsum': return 'جبس بورد وأسقف معلقة مع إنارة';
+      case 'plain': return 'دهانات داخلية فاخرة (أوسكار والجزيرة)';
+      case 'decor': return 'تركيب شيبورد وبويات ديكورية';
+      case 'gypsum': return 'أسقف جبس بورد مع إنارة مخفية';
       case 'marble': return 'تكسيات بديل الرخام وبديل الخشب WPC';
     }
   };
 
-  const summaryText = `طلب عرض سعر: المساحة ${area}م² - نوع التشطيب: ${getServiceLabel()}`;
+  const summaryText = `طلب عرض سعر سريع: المساحة ${area}م² - نوع التشطيب: ${getServiceLabel()}`;
 
   const handleWhatsAppSend = () => {
-    const text = `مرحباً إتش بي فاست، أرغب في الحصول على عرض سعر لدهان منزلي:\n• المساحة التقريبية: ${area} متر مربع\n• نوع الخدمة: ${getServiceLabel()}\n• مدة الإنجاز المتوقعة: ${getEstimatedDays()}\n\nيرجى التواصل معي لتحديد موعد المعاينة المجانية وتقديم عرض السعر.`;
+    const text = `مرحباً إتش بي فاست (HB FAST)، أرغب في الحصول على عرض سعر لدهان منزلي بالرياض:\n• المساحة التقريبية: ${area} متر مربع\n• نوع الخدمة: ${getServiceLabel()}\n• مدة الإنجاز المتوقعة: ${getEstimatedDays()}\n\nيرجى التواصل معي لتحديد موعد المعاينة المجانية بالرياض.`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
     onClose();
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl relative animate-in zoom-in-95 duration-200 my-auto text-slate-800">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-white rounded-3xl max-w-md w-full p-5 sm:p-6 shadow-2xl relative animate-in zoom-in-95 duration-200 my-auto text-slate-800 border border-slate-200">
         <button
           onClick={onClose}
           className="absolute top-4 left-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
@@ -52,12 +52,12 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
         </button>
 
         <div className="flex items-center gap-3 mb-1">
-          <div className="w-9 h-9 rounded-xl bg-orange-100 text-[#FF8A00] flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-[#C9A227]/15 text-[#A67C00] flex items-center justify-center font-bold">
             <Calculator className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="font-bold text-base text-[#003682]">طلب عرض سعر سريع</h3>
-            <p className="text-[11px] text-slate-500">حدد المساحة ونوع التشطيب للحصول على أفضل سعر</p>
+            <h3 className="font-extrabold text-base text-[#1a1a2e]">طلب عرض سعر سريع</h3>
+            <p className="text-[11px] text-slate-500">حدد المساحة ونوع التشطيب للحصول على أفضل سعر بالرياض</p>
           </div>
         </div>
 
@@ -66,7 +66,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
           <div>
             <div className="flex justify-between items-center text-xs font-bold text-slate-700 mb-1.5">
               <span>المساحة الإجمالية بالمتر المربع:</span>
-              <span className="text-[#0052B4] font-mono text-base font-extrabold">{area} م²</span>
+              <span className="text-[#A67C00] font-mono text-base font-extrabold">{area} م²</span>
             </div>
 
             {/* Quick buttons */}
@@ -78,7 +78,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
                   onClick={() => setArea(preset)}
                   className={`py-1 text-[11px] font-semibold rounded-lg border transition cursor-pointer ${
                     area === preset
-                      ? 'bg-[#0052B4] text-white border-[#0052B4]'
+                      ? 'bg-[#1a1a2e] text-[#C9A227] border-[#1a1a2e]'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
                   }`}
                 >
@@ -94,7 +94,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
               step="5"
               value={area}
               onChange={(e) => setArea(Number(e.target.value))}
-              className="w-full accent-[#0052B4] cursor-pointer"
+              className="w-full accent-[#C9A227] cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
               <span>15 م²</span>
@@ -110,7 +110,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             <div className="space-y-1.5">
               {[
                 { id: 'plain', title: 'دهان مودرن سادة ناعم (أوسكار أصلية)', badge: 'شامل المعجون' },
-                { id: 'decor', title: 'بويات ديكورية وتعتيق (روشن، خيال، مارمو)', badge: 'ديكور فاخر' },
+                { id: 'decor', title: 'تركيب شيبورد وبويات ديكورية', badge: 'ديكور فاخر' },
                 { id: 'gypsum', title: 'جبس بورد وأسقف معلقة وإنارة مخفية', badge: 'شامل الهياكل' },
                 { id: 'marble', title: 'تكسيات بديل رخام وبديل خشب WPC', badge: 'طابع فندقي' },
               ].map((s) => (
@@ -119,11 +119,11 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
                   onClick={() => setServiceType(s.id as any)}
                   className={`p-2.5 rounded-xl border text-xs cursor-pointer flex items-center justify-between transition ${
                     serviceType === s.id
-                      ? 'border-[#0052B4] bg-blue-50/70 text-[#003682]'
+                      ? 'border-[#C9A227] bg-[#fdfbf7] text-[#1a1a2e] font-bold shadow-xs'
                       : 'border-slate-200 text-slate-700 hover:bg-slate-50'
                   }`}
                 >
-                  <span className="font-semibold">{s.title}</span>
+                  <span>{s.title}</span>
                   <span className="text-[10px] bg-white px-2 py-0.5 rounded text-slate-500 border border-slate-200">
                     {s.badge}
                   </span>
@@ -132,14 +132,14 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             </div>
           </div>
 
-          {/* Summary Details Badge (Price box removed) */}
-          <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs">
+          {/* Summary Details Badge */}
+          <div className="p-3.5 bg-[#fdfbf7] rounded-2xl border border-[#E8D48B]/60 text-xs">
             <div className="flex items-center gap-2 text-slate-700 mb-1 font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-[#0052B4] shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-[#C9A227] shrink-0" />
               <span>مدة الإنجاز القياسية المتوقعة: <b className="text-slate-900">{getEstimatedDays()}</b></span>
             </div>
             <div className="text-[11px] text-slate-500 leading-relaxed">
-              * يشمل المعاينة الفنية المجانية بالموقع، وتغليف الأثاث، وضمان 5 سنوات موثق.
+              * يشمل المعاينة الفنية المجانية بالموقع في جميع أحياء الرياض، وضمان 5 سنوات موثق.
             </div>
           </div>
 
@@ -148,7 +148,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             <span className="text-slate-600 font-medium">للتواصل المباشر:</span>
             <a 
               href={`tel:${PHONE_NUMBER}`}
-              className="font-bold text-[#0052B4] hover:underline flex items-center gap-1.5"
+              className="font-bold text-[#A67C00] hover:underline flex items-center gap-1.5"
             >
               <Phone className="w-3.5 h-3.5" />
               <span dir="ltr" className="font-mono">0508029328</span>

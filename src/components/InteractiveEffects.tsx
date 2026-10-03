@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface ClickRipple {
@@ -14,13 +14,13 @@ export const InteractiveEffects: React.FC = () => {
   const [isHoveringClickable, setIsHoveringClickable] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Palette of energetic paint splash colors
+  // Palette matching tarmim-decor.com luxury gold & navy
   const splashColors = [
-    '#FF8A00', // HB Orange
-    '#0052B4', // HB Blue
-    '#25D366', // WhatsApp Green
-    '#FFB800', // Gold/Amber
-    '#00D2FF', // Vibrant Cyan
+    '#C9A227', // Luxury Gold
+    '#A67C00', // Dark Gold
+    '#E8D48B', // Light Shimmering Gold
+    '#25D366', // WhatsApp Emerald
+    '#16213e', // Royal Navy
   ];
 
   // Track global scroll percentage
@@ -41,7 +41,6 @@ export const InteractiveEffects: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
 
-      // Check if target is clickable
       const target = e.target as HTMLElement | null;
       if (target) {
         const isClickable = Boolean(
@@ -57,7 +56,6 @@ export const InteractiveEffects: React.FC = () => {
 
     // Global Click Paint Splash Effect
     const handleClick = (e: MouseEvent) => {
-      // Don't spawn if clicked inside modal backdrop or special containers if undesired
       const randomColor = splashColors[Math.floor(Math.random() * splashColors.length)];
       const newRipple: ClickRipple = {
         id: Date.now() + Math.random(),
@@ -68,7 +66,6 @@ export const InteractiveEffects: React.FC = () => {
 
       setRipples((prev) => [...prev.slice(-8), newRipple]);
 
-      // Remove ripple after animation completes
       setTimeout(() => {
         setRipples((prev) => prev.filter((r) => r.id !== newRipple.id));
       }, 750);
@@ -85,24 +82,23 @@ export const InteractiveEffects: React.FC = () => {
 
   return (
     <>
-      {/* 1. Global Scroll Progress Bar at the very top */}
+      {/* 1. Global Scroll Progress Bar at the very top in Gold */}
       <div className="fixed top-0 inset-x-0 h-1.5 z-50 pointer-events-none bg-black/10">
         <div 
-          className="h-full bg-gradient-to-r from-[#FF8A00] via-[#FFB800] to-[#0052B4] shadow-[0_0_10px_rgba(255,138,0,0.8)] transition-all duration-150 ease-out"
+          className="h-full bg-gradient-to-r from-[#A67C00] via-[#C9A227] to-[#E8D48B] shadow-[0_0_12px_rgba(201,162,39,0.8)] transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       {/* 2. Custom Cursor Follower for Desktop */}
       <div className="hidden lg:block pointer-events-none fixed inset-0 z-50 overflow-hidden">
-        {/* Outer glowing halo follower */}
         <motion.div
           animate={{
             x: mousePos.x - (isHoveringClickable ? 24 : 16),
             y: mousePos.y - (isHoveringClickable ? 24 : 16),
             scale: isHoveringClickable ? 1.4 : 1,
-            borderColor: isHoveringClickable ? '#FF8A00' : 'rgba(0, 82, 180, 0.4)',
-            backgroundColor: isHoveringClickable ? 'rgba(255, 138, 0, 0.12)' : 'rgba(0, 82, 180, 0.04)',
+            borderColor: isHoveringClickable ? '#C9A227' : 'rgba(201, 162, 39, 0.4)',
+            backgroundColor: isHoveringClickable ? 'rgba(201, 162, 39, 0.15)' : 'rgba(201, 162, 39, 0.05)',
           }}
           transition={{ type: 'spring', damping: 28, stiffness: 350, mass: 0.5 }}
           className={`w-8 h-8 rounded-full border-2 transition-colors duration-200 pointer-events-none ${
@@ -110,7 +106,6 @@ export const InteractiveEffects: React.FC = () => {
           }`}
         />
 
-        {/* Inner dot */}
         <motion.div
           animate={{
             x: mousePos.x - 3,
@@ -118,7 +113,7 @@ export const InteractiveEffects: React.FC = () => {
             scale: isHoveringClickable ? 0 : 1,
           }}
           transition={{ type: 'spring', damping: 35, stiffness: 800 }}
-          className="w-1.5 h-1.5 rounded-full bg-[#FF8A00] pointer-events-none"
+          className="w-1.5 h-1.5 rounded-full bg-[#C9A227] pointer-events-none"
         />
       </div>
 
@@ -129,7 +124,7 @@ export const InteractiveEffects: React.FC = () => {
             <React.Fragment key={ripple.id}>
               {/* Expanding Paint Ring */}
               <motion.div
-                initial={{ scale: 0.1, opacity: 0.8 }}
+                initial={{ scale: 0.1, opacity: 0.85 }}
                 animate={{ scale: 2.8, opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}

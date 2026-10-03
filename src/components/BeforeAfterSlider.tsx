@@ -74,7 +74,7 @@ export const BeforeAfterSlider: React.FC = () => {
           {/* After Image (Background: Full width) */}
           <div className="absolute inset-0 w-full h-full">
             <img 
-              src={ASSETS.project1} 
+              src={ASSETS.projNarjis} 
               alt="بعد التشطيب بدهانات أوسكار"
               className="w-full h-full object-cover pointer-events-none"
             />
@@ -95,7 +95,7 @@ export const BeforeAfterSlider: React.FC = () => {
               style={{ width: containerRef.current ? containerRef.current.clientWidth : '100%' }}
             >
               <img 
-                src={ASSETS.project2} 
+                src={ASSETS.projMalqa} 
                 alt="قبل التشطيب"
                 className="w-full h-full object-cover filter grayscale contrast-125 brightness-75"
               />

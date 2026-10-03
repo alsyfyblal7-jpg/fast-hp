@@ -1,106 +1,169 @@
 import React from 'react';
-import { MapPin, Clock, Phone, MessageCircle } from 'lucide-react';
-import { ASSETS, PHONE_NUMBER, WHATSAPP_NUMBER } from '../data';
+import { Phone, MessageCircle, MapPin, ShieldCheck, Clock, ArrowLeft } from 'lucide-react';
+import { ASSETS, BRAND_NAME, BRAND_SHORT, PHONE_NUMBER, WHATSAPP_NUMBER } from '../data';
 
 interface FooterProps {
-  onOpenEstimator: () => void;
+  onOpenEstimator?: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#00255A] text-white pt-16 pb-20 md:pb-16 px-4 sm:px-6 lg:px-8 border-t border-[#003682]" data-purpose="footer">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-[#1a1a2e] text-white pt-16 pb-12 border-t-4 border-[#C9A227]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* 4 Columns Grid on Desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/10">
+        {/* 4 Columns Desktop Grid matching tarmim-decor.com */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-14 border-b border-white/10">
           
-          {/* Col 1: Brand & Bio (4 cols on lg) */}
-          <div className="lg:col-span-4">
-            <div className="h-14 w-40 overflow-hidden flex items-center justify-start mb-4">
-              <img 
-                alt="شعار إتش بي فاست" 
-                className="h-full w-auto object-contain brightness-105" 
-                loading="lazy" 
-                src={ASSETS.footerLogo} 
-              />
+          {/* Col 1: About Institution */}
+          <div>
+            <div className="flex items-center gap-3 mb-5">
+              <div className="h-12 w-auto max-w-[190px] overflow-hidden flex items-center">
+                <img 
+                  src={ASSETS.logo} 
+                  alt={BRAND_NAME} 
+                  className="h-full w-auto object-contain"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed mb-6 max-w-sm">
-              إتش بي فاست (HB Fast) للدهانات والديكورات العصرية. نجمع لك بين سرعة التنفيذ الفائقة، والذوق الرفيع، والجودة المضمونة بشهادة معتمدة 5 سنوات.
+
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+              مؤسسة <strong>{BRAND_NAME}</strong> متخصصة في أعمال الدهانات والتشطيبات الداخلية والخارجية والترميم الشامل في الرياض. نلتزم بأعلى معايير الجودة وخامات أوسكار والجزيرة الأصلية مع ضمان رسمي 5 سنوات.
             </p>
-            <div className="flex items-center gap-3">
-              <a 
-                href={`https://wa.me/${WHATSAPP_NUMBER}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition"
-                title="واتساب"
-              >
-                <MessageCircle className="w-5 h-5 fill-current" />
-              </a>
-              <a 
-                href={`tel:${PHONE_NUMBER}`}
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-[#0052B4] text-white flex items-center justify-center transition"
-                title="اتصال هاتفي"
-              >
-                <Phone className="w-5 h-5 fill-current" />
-              </a>
+
+            <div className="inline-flex items-center gap-2 text-xs text-[#E8D48B] bg-white/5 px-3 py-1.5 rounded-xl border border-white/10">
+              <ShieldCheck className="w-4 h-4 text-[#C9A227]" />
+              <span>ضمان رسمي معتمد 5 سنوات</span>
             </div>
           </div>
 
-          {/* Col 2: Quick Links (2 cols on lg) */}
-          <div className="lg:col-span-2">
-            <h4 className="font-bold text-base text-white mb-4">روابط سريعة</h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
-              <li><a href="#" className="hover:text-white transition">الرئيسية</a></li>
-              <li><a href="#services" className="hover:text-white transition">خدماتنا</a></li>
-              <li><a href="#palette" className="hover:text-white transition">ألوان 2025</a></li>
-              <li><a href="#portfolio" className="hover:text-white transition">معرض الأعمال</a></li>
-              <li><a href="#why-us" className="hover:text-white transition">لماذا نحن</a></li>
+          {/* Col 2: Contact Info */}
+          <div>
+            <h4 className="text-sm font-bold text-[#C9A227] mb-5 tracking-wider">
+              تواصل معنا
+            </h4>
+            <div className="space-y-3.5 text-xs sm:text-sm">
+              <a 
+                href={`tel:${PHONE_NUMBER}`}
+                className="flex items-center gap-3 text-slate-200 hover:text-[#C9A227] transition"
+              >
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-[#C9A227]">
+                  <Phone className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 block font-normal">الاتصال الهاتفي المباشر:</span>
+                  <span dir="ltr" className="font-mono font-bold">0508029328</span>
+                </div>
+              </a>
+
+              <a 
+                href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('السلام عليكم إتش بي فاست، أرغب في استشارة ومعاينة مجانية لدهانات وتشطيبات منزلي بالرياض')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-slate-200 hover:text-[#25D366] transition"
+              >
+                <div className="w-8 h-8 rounded-lg bg-[#25D366]/20 flex items-center justify-center shrink-0 text-[#25D366]">
+                  <MessageCircle className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 block font-normal">واتساب على مدار 24 ساعة:</span>
+                  <span dir="ltr" className="font-mono font-bold">0508029328</span>
+                </div>
+              </a>
+
+              <div className="flex items-center gap-3 text-slate-200">
+                <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 text-[#C9A227]">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 block font-normal">المنطقة والخدمة:</span>
+                  <span>الرياض • نخدم كافة الأحياء وضواحيها</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Col 3: Quick Links */}
+          <div>
+            <h4 className="text-sm font-bold text-[#C9A227] mb-5 tracking-wider">
+              روابط سريعة
+            </h4>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
               <li>
-                <button 
-                  type="button"
-                  onClick={onOpenEstimator}
-                  className="hover:text-white transition cursor-pointer text-right"
-                >
-                  حاسبة التكلفة الفورية
-                </button>
+                <a href="#" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>الصفحة الرئيسية</span>
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>من نحن ولماذا تختارنا</span>
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>خدماتنا الـ 12 المتميزة</span>
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>معرض الأعمال المنجزة</span>
+                </a>
+              </li>
+              <li>
+                <a href="#articles" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>معلومات تهمك واستشارات</span>
+                </a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-white transition flex items-center gap-1.5">
+                  <span className="text-[#C9A227]">›</span>
+                  <span>الأسئلة الشائعة</span>
+                </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Specialized Services (3 cols on lg) */}
-          <div className="lg:col-span-3">
-            <h4 className="font-bold text-base text-white mb-4">خدمات التشطيب</h4>
-            <ul className="space-y-2.5 text-sm text-slate-300">
-              <li><a href="#services" className="hover:text-white transition">دهانات سادة ومودرن (أوسكار)</a></li>
-              <li><a href="#services" className="hover:text-white transition">ديكورات وتعتيق (روشن، خيال)</a></li>
-              <li><a href="#services" className="hover:text-white transition">جبس بورد وأسقف معلقة وإنارة</a></li>
-              <li><a href="#services" className="hover:text-white transition">تكسيات بديل الرخام وبديل الخشب</a></li>
-              <li><a href="#services" className="hover:text-white transition">عزل الأسطح ومعالجة الرطوبة</a></li>
+          {/* Col 4: Top Services */}
+          <div>
+            <h4 className="text-sm font-bold text-[#C9A227] mb-5 tracking-wider">
+              خدماتنا الرئيسية
+            </h4>
+            <ul className="space-y-2 text-xs text-slate-300">
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>دهانات داخلية وخارجية (أوسكار)</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>تركيب الشيبورد وخلفيات الشاشة</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>بديل الرخام الفاخر وبديل الخشب WPC</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>ديكورات الفوم والبانوهات والجبس بورد</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>تركيب الباركيه وترميم وتشطيب شامل</span>
+              </li>
+              <li className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C9A227]" />
+                <span>عزل الأسطح والتسربات والرطوبة</span>
+              </li>
             </ul>
-          </div>
 
-          {/* Col 4: Coverage & Working Hours (3 cols on lg) */}
-          <div className="lg:col-span-3">
-            <h4 className="font-bold text-base text-white mb-4">التغطية وأوقات العمل</h4>
-            <div className="space-y-3 text-sm text-slate-300">
-              <div className="flex items-start gap-2.5">
-                <MapPin className="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
-                <span>نغطي كافة أحياء الرياض والمحافظات المجاورة بزيارات ومعاينات مجانية فورية.</span>
-              </div>
-              <div className="flex items-start gap-2.5">
-                <Clock className="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
-                <span>ساعات العمل: يومياً من الساعة 8:00 صباحاً حتى 10:00 مساءً.</span>
-              </div>
-              <div className="flex items-center gap-2.5 pt-1 text-sm">
-                <Phone className="w-4 h-4 text-[#FF8A00] shrink-0" />
-                <span>رقم التواصل: <a href={`tel:${PHONE_NUMBER}`} className="font-bold font-mono text-white hover:text-amber-300" dir="ltr">0508029328</a></span>
-              </div>
-              <div className="pt-2 text-xs text-amber-300">
-                ⚡ خدمة الطوارئ السريعة ومعاينة نفس اليوم متوفرة.
-              </div>
+            <div className="mt-5 p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-[#E8D48B]">
+              ⚡ سرعة استجابة فائقة (FAST) ومعاينة مجانية في نفس اليوم بالرياض.
             </div>
           </div>
 
@@ -109,13 +172,13 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
         {/* Footer Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            جميع الحقوق محفوظة © {currentYear} إتش بي فاست للدهانات والديكورات (HB Fast).
+            جميع الحقوق محفوظة © {currentYear} {BRAND_NAME} ({BRAND_SHORT}) - مقاول دهانات وديكورات الرياض.
           </div>
-          <div className="text-amber-300/90 font-semibold">
+          <div className="text-[#E8D48B] font-bold text-sm tracking-wide bg-white/5 px-3 py-1 rounded-lg border border-white/10">
             تطوير وبرمجة بلال الصيفي
           </div>
-          <div className="flex items-center gap-4">
-            <a href="#consultation-form" className="hover:text-white transition">طلب مقايسة مجانية</a>
+          <div className="flex items-center gap-3">
+            <a href="#consultation-form" className="hover:text-white transition">طلب مقايسة وعرض سعر</a>
             <span>•</span>
             <a href={`tel:${PHONE_NUMBER}`} className="hover:text-white transition">اتصل بنا</a>
           </div>

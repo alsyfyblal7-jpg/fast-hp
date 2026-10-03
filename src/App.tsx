@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { KeyMetrics } from './components/KeyMetrics';
+import { IntroText } from './components/IntroText';
+import { AboutPreview } from './components/AboutPreview';
 import { Services } from './components/Services';
-import { PalettePreview } from './components/PalettePreview';
 import { InteractivePaintStudio } from './components/InteractivePaintStudio';
 import { BeforeAfterSlider } from './components/BeforeAfterSlider';
 import { Portfolio } from './components/Portfolio';
 import { ColorMoodQuiz } from './components/ColorMoodQuiz';
-import { WhyChooseUs } from './components/WhyChooseUs';
 import { ProcessSteps } from './components/ProcessSteps';
+import { ArticlesSection } from './components/ArticlesSection';
+import { ConsultationForm } from './components/ConsultationForm';
 import { Reviews } from './components/Reviews';
 import { FAQSection } from './components/FAQSection';
-import { ConsultationForm } from './components/ConsultationForm';
 import { CostEstimatorModal } from './components/CostEstimatorModal';
 import { StickyBottomBar } from './components/StickyBottomBar';
 import { FloatingActionWidget } from './components/FloatingActionWidget';
@@ -35,11 +35,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFD] text-slate-800 antialiased flex flex-col w-full selection:bg-[#FF8A00] selection:text-white relative">
-      {/* Global Click & Scroll Interactive Effects (Ripples, Custom Cursor, Scroll Progress) */}
+    <div className="min-h-screen bg-[#f8f9fa] text-[#1a1a1a] antialiased flex flex-col w-full selection:bg-[#C9A227] selection:text-white relative" style={{ fontFamily: "'Tajawal', sans-serif" }}>
+      {/* Global Click & Scroll Interactive Effects (Gold Ripples, Cursor Follower, Top Scroll Bar) */}
       <InteractiveEffects />
 
-      {/* Top Header with Desktop Navigation & Quick Actions */}
+      {/* Top Header matching tarmim-decor.com */}
       <Header 
         onOpenConsultation={() => scrollToConsultation()}
         onOpenEstimator={() => setIsEstimatorOpen(true)}
@@ -47,24 +47,24 @@ export default function App() {
 
       {/* Main Full-Width Content Container */}
       <main className="flex-1 w-full">
-        {/* Hero Section with 2-Column Desktop Grid */}
+        {/* Hero Section matching tarmim-decor.com */}
         <Hero 
           onOpenConsultation={() => scrollToConsultation()}
           onOpenEstimator={() => setIsEstimatorOpen(true)}
         />
 
-        {/* 4 Key Metrics Cards Grid with motion reveals */}
-        <KeyMetrics />
+        {/* Intro Text Section (SEO & Riyadh Neighborhoods) */}
+        <IntroText />
 
-        {/* Services Showcase (4 Columns on Desktop with motion) */}
+        {/* About Preview Section ('لماذا عملاء الرياض يختارون ترميم ديكور؟' + 500+ Stats & 4 Pillars) */}
+        <AboutPreview />
+
+        {/* 12 Services Grid matching tarmim-decor.com with authentic WebP images & keywords */}
         <Services 
-          onSelectService={(serviceId) => scrollToConsultation(serviceId)}
+          onSelectService={(serviceId, serviceTitle) => scrollToConsultation(serviceId, `طلب خدمة: ${serviceTitle}`)}
         />
 
-        {/* Modern 2025 Palette & Interactive Room Roller Simulator */}
-        <PalettePreview />
-
-        {/* Playful Interactive Wall Painting Studio (Canvas Roller Tool) */}
+        {/* Interactive Wall Painting Studio (Canvas Roller Tool with Oscar/Jazeera paints) */}
         <InteractivePaintStudio 
           onSelectColorForBooking={(colorName) => {
             scrollToConsultation('interior-paints', `طلب دهان اللون المختار من الاستوديو: ${colorName}`);
@@ -74,44 +74,44 @@ export default function App() {
         {/* Interactive Before & After Renovation Slider */}
         <BeforeAfterSlider />
 
-        {/* Portfolio Showcase Grid (3 Columns on Desktop) */}
+        {/* 4 Major Projects Grid matching tarmim-decor.com */}
         <Portfolio 
           onBookProjectLikeThis={(title) => scrollToConsultation('interior-paints', `طلب تنفيذ تصميم مماثل لـ: ${title}`)}
         />
 
-        {/* Interactive Color Mood Quiz (Find your ideal color scheme in 3 steps) */}
+        {/* Interactive Color Mood Quiz (3 Steps Recommendation) */}
         <ColorMoodQuiz 
           onApplyRecommendation={(summary) => {
             scrollToConsultation('interior-paints', summary);
           }}
         />
 
-        {/* Why Choose Us (4 Columns on Desktop) */}
-        <WhyChooseUs />
-
         {/* 4 Pipeline Process Steps */}
         <ProcessSteps />
 
-        {/* Consultation & Free 3D Design Lead Capture (2 Columns on Desktop) */}
+        {/* Consultation & Free Quote Form ('احصل على عرض سعر لدهان منزلك') */}
         <ConsultationForm 
           initialService={selectedService}
           initialNote={projectNote}
         />
 
-        {/* Verified Homeowner Reviews */}
+        {/* Articles Section ('معلومات تهمك عن الديكور والتشطيب') matching tarmim-decor.com */}
+        <ArticlesSection />
+
+        {/* Verified Client Reviews */}
         <Reviews />
 
-        {/* Frequently Asked Questions */}
+        {/* Frequently Asked Questions matching tarmim-decor.com */}
         <FAQSection />
       </main>
 
-      {/* Full-Scale 4-Column Desktop Footer */}
+      {/* Full-Scale 4-Column Desktop Footer matching tarmim-decor.com with 'تطوير وبرمجة بلال الصيفي' */}
       <Footer onOpenEstimator={() => setIsEstimatorOpen(true)} />
 
       {/* Mobile-Only Sticky Bottom Bar (hidden on desktop) */}
       <StickyBottomBar onOpenConsultation={() => scrollToConsultation()} />
 
-      {/* Floating Animated WhatsApp & Hotline Widget */}
+      {/* Side Floating Action Buttons (WhatsApp, Phone, Back-to-Top) */}
       <FloatingActionWidget />
 
       {/* Realistic Live Activity Toast Notifications in Riyadh */}
