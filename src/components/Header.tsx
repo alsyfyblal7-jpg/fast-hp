@@ -34,33 +34,33 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Zone 2: Desktop Navigation Links (Clean single line typography) */}
-        <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
-          <a href="#" className="text-[#0052B4] hover:text-[#003682] transition-colors">
+        <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
+          <a href="#" className="text-[#0052B4] hover:text-[#003682] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             الرئيسية
           </a>
-          <a href="#services" className="hover:text-[#0052B4] transition-colors">
+          <a href="#services" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             خدماتنا
           </a>
-          <a href="#palette" className="hover:text-[#0052B4] transition-colors">
+          <a href="#palette" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             ألوان 2025
           </a>
-          <a href="#portfolio" className="hover:text-[#0052B4] transition-colors">
+          <a href="#portfolio" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             معرض الأعمال
           </a>
-          <a href="#why-us" className="hover:text-[#0052B4] transition-colors">
+          <a href="#why-us" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             لماذا نحن
           </a>
           <button 
             type="button" 
             onClick={onOpenEstimator}
-            className="hover:text-[#0052B4] transition-colors cursor-pointer"
+            className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform cursor-pointer"
           >
             حاسبة التكلفة
           </button>
-          <a href="#reviews" className="hover:text-[#0052B4] transition-colors">
+          <a href="#reviews" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             آراء العملاء
           </a>
-          <a href="#faq" className="hover:text-[#0052B4] transition-colors">
+          <a href="#faq" className="hover:text-[#0052B4] hover:-translate-y-0.5 active:translate-y-0 transition-transform">
             الأسئلة الشائعة
           </a>
         </nav>
