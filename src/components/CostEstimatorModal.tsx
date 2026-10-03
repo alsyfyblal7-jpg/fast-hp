@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Calculator, MessageCircle, Phone, Calendar } from 'lucide-react';
+import { X, Calculator, MessageCircle, Phone, ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { PHONE_NUMBER, WHATSAPP_NUMBER } from '../data';
 
 interface CostEstimatorModalProps {
@@ -26,17 +26,17 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
 
   const getServiceLabel = () => {
     switch (serviceType) {
-      case 'plain': return 'دهانات داخلية سادة ومودرن (جوتن)';
+      case 'plain': return 'دهانات داخلية سادة ومودرن (أوسكار)';
       case 'decor': return 'بويات ديكورية وتعتيق (روشن، خيال)';
       case 'gypsum': return 'جبس بورد وأسقف معلقة مع إنارة';
       case 'marble': return 'تكسيات بديل الرخام وبديل الخشب WPC';
     }
   };
 
-  const summaryText = `طلب معاينة: المساحة ${area}م² - الخدمة: ${getServiceLabel()}`;
+  const summaryText = `طلب عرض سعر: المساحة ${area}م² - نوع التشطيب: ${getServiceLabel()}`;
 
   const handleWhatsAppSend = () => {
-    const text = `مرحباً إتش بي فاست، قمت بتحديد بيانات الطلب عبر الموقع:\n• المساحة: ${area} متر مربع\n• نوع الخدمة: ${getServiceLabel()}\n• مدة الإنجاز المتوقعة: ${getEstimatedDays()}\n\nأرغب في حجز موعد للمعاينة المجانية وتحديد التكلفة النهائية بالموقع.`;
+    const text = `مرحباً إتش بي فاست، أرغب في الحصول على عرض سعر لدهان منزلي:\n• المساحة التقريبية: ${area} متر مربع\n• نوع الخدمة: ${getServiceLabel()}\n• مدة الإنجاز المتوقعة: ${getEstimatedDays()}\n\nيرجى التواصل معي لتحديد موعد المعاينة المجانية وتقديم عرض السعر.`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
     onClose();
   };
@@ -56,8 +56,8 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             <Calculator className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="font-bold text-base text-[#003682]">حاسبة المساحة وحجز المعاينة</h3>
-            <p className="text-[11px] text-slate-500">تحديد المساحة والخدمة لطلب معاينة فنية مجانية</p>
+            <h3 className="font-bold text-base text-[#003682]">طلب عرض سعر سريع</h3>
+            <p className="text-[11px] text-slate-500">حدد المساحة ونوع التشطيب للحصول على أفضل سعر</p>
           </div>
         </div>
 
@@ -109,7 +109,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             <label className="block text-xs font-bold text-slate-700 mb-1.5">نوع التشطيب المطلوب:</label>
             <div className="space-y-1.5">
               {[
-                { id: 'plain', title: 'دهان مودرن سادة ناعم (جوتن أصلية)', badge: 'شامل المعجون' },
+                { id: 'plain', title: 'دهان مودرن سادة ناعم (أوسكار أصلية)', badge: 'شامل المعجون' },
                 { id: 'decor', title: 'بويات ديكورية وتعتيق (روشن، خيال، مارمو)', badge: 'ديكور فاخر' },
                 { id: 'gypsum', title: 'جبس بورد وأسقف معلقة وإنارة مخفية', badge: 'شامل الهياكل' },
                 { id: 'marble', title: 'تكسيات بديل رخام وبديل خشب WPC', badge: 'طابع فندقي' },
@@ -132,17 +132,14 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
             </div>
           </div>
 
-          {/* Duration Info Card (بدل كرت السعر) */}
-          <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200">
-            <div className="text-xs text-slate-600 flex items-center justify-between">
-              <span className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
-                <span>مدة الإنجاز المتوقعة:</span>
-              </span>
-              <b className="text-slate-800 font-bold">{getEstimatedDays()}</b>
+          {/* Summary Details Badge (Price box removed) */}
+          <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200 text-xs">
+            <div className="flex items-center gap-2 text-slate-700 mb-1 font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-[#0052B4] shrink-0" />
+              <span>مدة الإنجاز القياسية المتوقعة: <b className="text-slate-900">{getEstimatedDays()}</b></span>
             </div>
-            <div className="text-[10px] text-slate-400 mt-1.5 border-t border-slate-200/60 pt-1.5">
-              * يتم تحديد السعر والتكلفة النهائية بدقة تامة أثناء المعاينة الفنية المجانية بالموقع.
+            <div className="text-[11px] text-slate-500 leading-relaxed">
+              * يشمل المعاينة الفنية المجانية بالموقع، وتغليف الأثاث، وضمان 5 سنوات موثق.
             </div>
           </div>
 
@@ -165,7 +162,7 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
               className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs transition flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-current" />
-              <span>طلب حجز المعاينة بالواتساب</span>
+              <span>طلب عرض السعر فوراً عبر الواتساب</span>
             </button>
 
             <button
@@ -173,9 +170,10 @@ export const CostEstimatorModal: React.FC<CostEstimatorModalProps> = ({
                 onSelectEstimateForBooking(summaryText);
                 onClose();
               }}
-              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition text-center cursor-pointer"
+              className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition text-center cursor-pointer flex items-center justify-center gap-1.5"
             >
-              تعبئة نموذج المعاينة بالموقع
+              <span>تعبئة نموذج طلب عرض السعر بالموقع</span>
+              <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-0" />
             </button>
           </div>
         </div>

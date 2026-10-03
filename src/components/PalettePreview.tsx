@@ -163,7 +163,7 @@ export const PalettePreview: React.FC = () => {
                 <div className="relative z-10 bg-slate-900/80 backdrop-blur-md -mx-4 -mb-4 p-3 border-t border-white/20 flex items-center justify-between text-xs text-white">
                   <div>
                     <div className="font-bold text-xs">{selectedColor.name}</div>
-                    <div className="text-[10px] text-slate-300">مطلي بخامات جوتن فينوماستيك ناعم</div>
+                    <div className="text-[10px] text-slate-300">مطلي بخامات أوسكار الفاخرة ناعم</div>
                   </div>
                   <div className="text-[10px] text-amber-300 font-mono">
                     {selectedColor.hex}

@@ -81,12 +81,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onOpenEstimator 
             {/* Instant Estimator Shortcut Link */}
             <div className="flex items-center gap-2 text-xs sm:text-sm text-blue-100">
               <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
-              <span>هل تريد معرفة التكلفة فوراً؟</span>
+              <span>هل ترغب في تسعيرة سريعة؟</span>
               <button
                 onClick={onOpenEstimator}
                 className="font-bold text-amber-300 hover:text-white underline underline-offset-4 transition cursor-pointer"
               >
-                احسب تكلفة منزلك في دقيقة واحدة ←
+                احصل على عرض سعر لدهان منزلك الآن ←
               </button>
             </div>
           </div>
@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenConsultation, onOpenEstimator 
                 {/* Bottom Card Info Overlay */}
                 <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 text-right">
                   <div className="text-xs font-bold text-amber-300 mb-1">
-                    دهانات جوتن الأصلية + بديل رخام وإنارة ليد
+                    دهانات أوسكار الأصلية + بديل رخام وإنارة ليد
                   </div>
                   <div className="text-[11px] text-slate-200 line-clamp-2">
                     تنفيذ عالي الدقة مع حماية متكاملة للأثاث وتسليم نظيف بالكامل في 4 أيام عمل فقط.

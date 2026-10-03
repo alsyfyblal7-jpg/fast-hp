@@ -74,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
           <div className="lg:col-span-3">
             <h4 className="font-bold text-base text-white mb-4">خدمات التشطيب</h4>
             <ul className="space-y-2.5 text-sm text-slate-300">
-              <li><a href="#services" className="hover:text-white transition">دهانات سادة ومودرن (جوتن)</a></li>
+              <li><a href="#services" className="hover:text-white transition">دهانات سادة ومودرن (أوسكار)</a></li>
               <li><a href="#services" className="hover:text-white transition">ديكورات وتعتيق (روشن، خيال)</a></li>
               <li><a href="#services" className="hover:text-white transition">جبس بورد وأسقف معلقة وإنارة</a></li>
               <li><a href="#services" className="hover:text-white transition">تكسيات بديل الرخام وبديل الخشب</a></li>
@@ -92,7 +92,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
               </div>
               <div className="flex items-start gap-2.5">
                 <Clock className="w-5 h-5 text-[#FF8A00] shrink-0 mt-0.5" />
-                <span>ساعات العمل: يومياً من الساعة 8:00 صباحاً حتى 9:00 مساءً.</span>
+                <span>ساعات العمل: يومياً من الساعة 8:00 صباحاً حتى 10:00 مساءً.</span>
               </div>
               <div className="flex items-center gap-2.5 pt-1 text-sm">
                 <Phone className="w-4 h-4 text-[#FF8A00] shrink-0" />
@@ -111,12 +111,9 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEstimator }) => {
           <div>
             جميع الحقوق محفوظة © {currentYear} إتش بي فاست للدهانات والديكورات (HB Fast).
           </div>
-
-          {/* حقوق التطوير والبرمجة */}
-          <div className="text-slate-300 font-medium">
-            تطوير وبرمجة <span className="text-[#FF8A00] font-bold">بلال الصيفي</span>
+          <div className="text-amber-300/90 font-semibold">
+            تطوير وبرمجة بلال الصيفي
           </div>
-
           <div className="flex items-center gap-4">
             <a href="#consultation-form" className="hover:text-white transition">طلب مقايسة مجانية</a>
             <span>•</span>
