@@ -34,7 +34,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
     setLoading(true);
 
     try {
-      // إرسال البيانات للـ Google Apps Script
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         headers: {
@@ -130,7 +129,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
               </a>
             </div>
           </div>
-
           {/* Left Column: Form Card */}
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 text-slate-900">
@@ -148,6 +146,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Full Name */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         الاسم الكريم: <span className="text-red-500">*</span>
@@ -162,6 +161,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                       />
                     </div>
 
+                    {/* Phone Number */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         رقم الجوال: <span className="text-red-500">*</span>
@@ -179,6 +179,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Service Type Selection */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         نوع الخدمة المطلوبة:
@@ -196,6 +197,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                       </select>
                     </div>
 
+                    {/* Neighborhood in Riyadh */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         الحي داخل الرياض:
@@ -205,4 +207,85 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                         value={neighborhood}
                         onChange={(e) => setNeighborhood(e.target.value)}
                         placeholder="مثال: حي النرجس، الملقا، الياسمين" 
-                        className="w-full
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/20 outline-hidden text-sm transition"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Notes & Area Description */}
+                  <div>
+                    <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                      تفاصيل إضافية عن المنزل أو المساحة (اختياري):
+                    </label>
+                    <textarea 
+                      rows={3}
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      placeholder="مثال: شقة 3 غرف وصالة أرغب في دهان أوسكار أوف وايت مع جدار شاشة بديل رخام" 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/20 outline-hidden text-sm transition resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button 
+                    type="submit" 
+                    disabled={loading}
+                    className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#A67C00] via-[#C9A227] to-[#E8D48B] hover:brightness-110 text-[#1a1a2e] font-black text-sm sm:text-base tracking-wide shadow-lg active:scale-98 transition mt-3 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  >
+                    <span>{loading ? 'جاري إرسال الطلب...' : 'الحصول على عرض السعر الآن'}</span>
+                    <ArrowLeft className="w-5 h-5 rtl:rotate-0" />
+                  </button>
+
+                  <p className="text-[11px] text-center text-slate-400 mt-2">
+                    🔒 معلوماتك مشفرة ومحمية بخصوصية تامة ولن يتم استخدامها إلا للتواصل معك بخصوص طلبك.
+                  </p>
+
+                </form>
+              ) : (
+                /* Success Screen with Direct WhatsApp Confirmation Option */
+                <div className="py-8 text-center animate-in zoom-in-95 duration-200">
+                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 shadow-inner">
+                    <CheckCircle2 className="w-10 h-10" />
+                  </div>
+                  
+                  <h3 className="text-2xl font-black text-slate-900 mb-2">
+                    تم استلام طلب عرض السعر بنجاح!
+                  </h3>
+                  
+                  <p className="text-sm text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">
+                    شكراً لك <strong className="text-slate-900">{name}</strong>. سيقوم مهندس التشطيبات بالاتصال بك على الرقم <span dir="ltr" className="font-mono font-bold text-[#A67C00]">{phone}</span> خلال دقائق لترتيب المعاينة المجانية.
+                  </p>
+
+                  <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 max-w-md mx-auto mb-6 text-right text-xs space-y-1.5">
+                    <div><span className="text-slate-500">الخدمة:</span> <strong className="text-slate-800">{getServiceName(service)}</strong></div>
+                    <div><span className="text-slate-500">الموقع:</span> <strong className="text-slate-800">{neighborhood}</strong></div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+                    <button
+                      onClick={handleOpenWhatsAppConfirmation}
+                      className="py-3 px-5 rounded-xl bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-current" />
+                      <span>تأكيد الموعد عبر واتساب فوراً</span>
+                    </button>
+
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="py-3 px-5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition"
+                    >
+                      طلب موعد لمشروع آخر
+                    </button>
+                  </div>
+                </div>
+              )}
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+};
