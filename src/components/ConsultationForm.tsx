@@ -176,4 +176,14 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                         required
                         dir="ltr"
                         value={phone}
-                        onChange={(
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="05XXXXXXXX" 
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/20 outline-hidden text-sm font-mono text-right transition"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {/* Service Type Selection */}
+                    <div>
+                      <label className="block text-
