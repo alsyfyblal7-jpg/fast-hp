@@ -100,7 +100,7 @@ export const LiveActivityToasts: React.FC = () => {
                 {current.text}
               </div>
               <div className="flex items-center gap-2 mt-1 text-[11px] text-slate-500 font-medium">
-                <span className="text-[#1A1A1A] font-semibold">{current.location}</span>
+                <span className="text-[#0052B4] font-semibold">{current.location}</span>
                 <span>•</span>
                 <span className="text-emerald-600 flex items-center gap-1 font-mono">
                   <Clock className="w-3 h-3" />

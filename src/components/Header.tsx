@@ -52,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a href="#services" className="hover:text-[#C9A227] transition-colors">
             باركيه
           </a>
-          <a href="#interactive-studio" className="hover:text-[#C9A227] transition-colors flex items-center gap-1 text-[#1A1A1A]">
+          <a href="#interactive-studio" className="hover:text-[#C9A227] transition-colors flex items-center gap-1 text-[#0052B4]">
             <Sparkles className="w-3.5 h-3.5 text-[#C9A227]" />
             <span>استوديو الدهان</span>
           </a>
@@ -159,7 +159,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a 
             href="#interactive-studio" 
             onClick={() => setMobileMenuOpen(false)}
-            className="block py-2 text-sm font-bold text-[#1A1A1A]"
+            className="block py-2 text-sm font-bold text-[#0052B4]"
           >
             استوديو الدهان التفاعلي بالرول
           </a>
