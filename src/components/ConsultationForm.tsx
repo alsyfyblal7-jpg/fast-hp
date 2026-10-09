@@ -71,9 +71,8 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
           
-          {/* Right Column: Promotional & Assurance Info (5 cols on lg) */}
+          {/* Right Column: Promotional & Assurance Info */}
           <div className="lg:col-span-5 text-right">
-            {/* Accent badge */}
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C9A227]/20 text-[#E8D48B] text-xs sm:text-sm font-bold mb-4 border border-[#C9A227]/30">
               <Sparkles className="w-4 h-4 text-[#C9A227] animate-bounce" />
               <span>معاينة فنية ورفع مقاسات مجاناً بالرياض</span>
@@ -86,7 +85,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
               أدخل بياناتك وسيقوم مهندس إتش بي فاست (HB FAST) بالتواصل معك خلال 30 دقيقة لرفع المقاسات وتقديم عرض السعر الدقيق والتصميم 3D مجاناً بدون أي التزام مالي.
             </p>
 
-            {/* Value checklist */}
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-xl bg-white/10 text-[#C9A227] flex items-center justify-center shrink-0 mt-0.5 border border-white/10">
@@ -119,7 +117,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
               </div>
             </div>
 
-            {/* Direct hotline reminder */}
             <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between text-xs sm:text-sm">
               <div className="flex items-center gap-2">
                 <PhoneCall className="w-4 h-4 text-[#C9A227]" />
@@ -134,7 +131,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
             </div>
           </div>
 
-          {/* Left Column: Form Card (7 cols on lg) */}
+          {/* Left Column: Form Card */}
           <div className="lg:col-span-7">
             <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-xl border border-slate-100 text-slate-900">
               
@@ -151,7 +148,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Full Name */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         الاسم الكريم: <span className="text-red-500">*</span>
@@ -166,7 +162,6 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                       />
                     </div>
 
-                    {/* Phone Number */}
                     <div>
                       <label className="block text-xs font-bold text-slate-700 mb-1.5">
                         رقم الجوال: <span className="text-red-500">*</span>
@@ -184,6 +179,30 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Service Type Selection */}
                     <div>
-                      <label className="block text-
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                        نوع الخدمة المطلوبة:
+                      </label>
+                      <select 
+                        value={service}
+                        onChange={(e) => setService(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/20 outline-hidden text-sm bg-white cursor-pointer transition"
+                      >
+                        {SERVICES.map((s) => (
+                          <option key={s.id} value={s.id}>
+                            {s.title}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                        الحي داخل الرياض:
+                      </label>
+                      <input 
+                        type="text" 
+                        value={neighborhood}
+                        onChange={(e) => setNeighborhood(e.target.value)}
+                        placeholder="مثال: حي النرجس، الملقا، الياسمين" 
+                        className="w-full
