@@ -42,7 +42,7 @@ export const PalettePreview: React.FC = () => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16" data-purpose="palette-preview" id="palette">
-      <div className="bg-[#00255A] rounded-3xl lg:rounded-[3rem] p-6 sm:p-10 lg:p-12 text-white relative overflow-hidden shadow-2xl">
+      <div className="bg-[#1A1A1A] rounded-3xl lg:rounded-[3rem] p-6 sm:p-10 lg:p-12 text-white relative overflow-hidden shadow-2xl">
         
         {/* Animated glowing orbs */}
         <motion.div 
@@ -53,7 +53,7 @@ export const PalettePreview: React.FC = () => {
         <motion.div 
           animate={{ scale: [1.2, 1, 1.2], opacity: [0.15, 0.3, 0.15] }}
           transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-20 -left-20 w-96 h-96 bg-blue-500 rounded-full blur-3xl pointer-events-none" 
+          className="absolute -top-20 -left-20 w-96 h-96 bg-[#D8C29D] rounded-full blur-3xl pointer-events-none" 
         />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -203,7 +203,7 @@ export const PalettePreview: React.FC = () => {
                   <button
                     onClick={() => setLighting('led')}
                     className={`px-2 py-1 rounded-lg text-[10px] font-medium flex items-center gap-1 transition cursor-pointer ${
-                      lighting === 'led' ? 'bg-[#0052B4] text-white font-bold' : 'text-slate-300 hover:text-white'
+                      lighting === 'led' ? 'bg-[#1A1A1A] text-white font-bold' : 'text-slate-300 hover:text-white'
                     }`}
                   >
                     <Moon className="w-3 h-3" />

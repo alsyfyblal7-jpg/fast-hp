@@ -11,7 +11,7 @@ export const WhyChooseUs: React.FC = () => {
           <span className="text-xs font-bold text-[#FF8A00] bg-orange-50 px-3.5 py-1.5 rounded-full border border-orange-100">
             لماذا تثق بنا؟
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#003682] mt-3">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1A1A2E] mt-3">
             لماذا تختار إتش بي فاست (HB FAST)؟
           </h2>
           <p className="text-sm sm:text-base text-slate-500 mt-2">
@@ -34,8 +34,8 @@ export const WhyChooseUs: React.FC = () => {
           </div>
 
           {/* Feature 2 */}
-          <div className="p-6 rounded-2xl bg-blue-50/50 border border-blue-100/60 hover:border-blue-200 transition">
-            <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0052B4] flex items-center justify-center mb-4">
+          <div className="p-6 rounded-2xl bg-[#F5EFE7]/80 border border-[#E8DCCB] hover:border-[#D8C29D] transition">
+            <div className="w-12 h-12 rounded-xl bg-[#EDE2D1] text-[#1A1A1A] flex items-center justify-center mb-4">
               <ShieldCheck className="w-6 h-6" />
             </div>
             <h3 className="text-base font-bold text-slate-900 mb-2">خامات أصلية 100% وصديقة للبيئة</h3>

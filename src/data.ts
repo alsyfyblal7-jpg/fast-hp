@@ -1,9 +1,9 @@
 import { ColorSwatch, ProjectItem, ServiceItem, Testimonial, ArticleItem } from './types';
 
 export const ASSETS = {
-  // Official HB Fast Logo uploaded by the user
-  logo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCwlr_WR9V77pCuKR491fqfl2UWCFNfy9bUsvJMqSs0LlqH-Q8sUbDLbWkTeq6iwqIdoTZOIj_PjKlUYhFnLhKJCDarvQzKx-ZRONEYJOqbsco2JOolX9bgvlvGObFz9ndukygoC45AuyU4AZZy37SWzhK91qeJpx68gMfvPW9mhXiMvrOLHUf3d7VTseag6uDeb-90CYdziOgw7zVAoCWRSu1fK7XCDWb-af_lmPRr4v_PCO-Y4tJLzjx4aUnzvG1hfU4',
-  footerLogo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBMw_f4j9ZsOh_4g_PnJwzhBPGj0CHR0e1SWKQ13sOunlXBWFhySDNY7h6gAVG_zSnfUmfEjbJOHJsP-uv7bIin5jhftTPDdJKFYW2f3vudHOepr95e1KxPM8MxAkTrOEcs4dXtJ0jkRP3mtd6KCw0CHp5QbY0lt4yl0veq1iL-2iu7Gf_zdZcGvoxYc9A4FRqzaIdOrEQS2CfCWvhqemaDaIPBKw7C0OOJcxidm9LXmDsba0ve6pjdVkUrlO4lZnKFdiQ',
+  // Local project asset to keep branding stable and deployable on Vercel
+  logo: '/logo.svg',
+  footerLogo: '/logo.svg',
   // Background and showcase assets from the new site design
   heroBg: 'https://tarmim-decor.com/images/best-contractor-decor-paints-riyadh.webp',
   interiorPaints: 'https://tarmim-decor.com/images/interior-painting-services-riyadh.webp',
@@ -160,12 +160,12 @@ export const COLOR_PALETTE: ColorSwatch[] = [
     recommendedFor: 'الفلل العصرية، المكاتب، ومداخل الشقق'
   },
   {
-    id: 'royal-navy',
-    name: 'أزرق فاست الملكي',
-    nameEn: 'HB Fast Blue',
-    hex: '#0052B4',
+    id: 'royal-ink',
+    name: 'أسود فاست الملكي',
+    nameEn: 'HB Fast Noir',
+    hex: '#1A1A1A',
     textColor: 'text-white',
-    description: 'اللون المميز لهوية إتش بي فاست، يضفي عمقاً فندقياً وفخامة استثنائية.',
+    description: 'اللون المميز لهوية إتش بي فاست، يضفي عمقاً فندقياً وفخامة استثنائيةً مع لمسات دافئة أنيقة.',
     recommendedFor: 'جدار الشاشة، المكاتب، ومجالس الضيوف'
   }
 ];

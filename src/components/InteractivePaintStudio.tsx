@@ -176,7 +176,7 @@ export const InteractivePaintStudio: React.FC<InteractivePaintStudioProps> = ({
             {/* Quick Fill Button */}
             <button
               onClick={handleFillAll}
-              className="px-3 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
+              className="px-3 py-2 bg-[#1A1A1A] hover:bg-[#2E2E2E] text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-sm transition active:scale-95 cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5" />
               <span>دهان كامل الجدار</span>

@@ -46,7 +46,7 @@ export const BeforeAfterSlider: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl sm:text-4xl font-extrabold text-[#003682] mt-3"
+            className="text-3xl sm:text-4xl font-extrabold text-[#1A1A2E] mt-3"
           >
             شاهد الفرق بنفسك: قبل وبعد اللمسة الفنية
           </motion.h2>
@@ -135,7 +135,7 @@ export const BeforeAfterSlider: React.FC = () => {
             <span>معالجة التشققات والشروخ بالمعجون الألماني المطاطي</span>
           </div>
           <div className="flex items-center justify-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0052B4]" />
+            <span className="w-2 h-2 rounded-full bg-[#1A1A1A]" />
             <span>دهانات أوسكار أصلية 100% قابلة للغسيل ومقاومة للبقع</span>
           </div>
           <div className="flex items-center justify-center gap-2">

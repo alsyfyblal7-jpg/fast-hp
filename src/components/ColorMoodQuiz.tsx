@@ -88,7 +88,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
 
   return (
     <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16" data-purpose="color-mood-quiz">
-      <div className="bg-white rounded-3xl lg:rounded-[2.5rem] p-6 sm:p-10 shadow-card border border-blue-100 relative overflow-hidden">
+      <div className="bg-white rounded-3xl lg:rounded-[2.5rem] p-6 sm:p-10 shadow-card border border-[#E8DCCB] relative overflow-hidden">
         
         {/* Header */}
         <div className="text-center max-w-xl mx-auto mb-8">
@@ -96,7 +96,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
             <Sparkles className="w-3.5 h-3.5 text-[#FF8A00]" />
             <span>مستشار الألوان التفاعلي الذكي</span>
           </span>
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#003682]">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-[#1A1A2E]">
             اكتشف الباليتة المثالية لمنزلك في 3 خطوات
           </h3>
           <p className="text-xs sm:text-sm text-slate-500 mt-1">
@@ -111,7 +111,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
               key={s}
               className={`h-2 rounded-full transition-all duration-300 ${
                 step === s
-                  ? 'w-8 bg-[#0052B4]'
+                  ? 'w-8 bg-[#1A1A1A]'
                   : step > s
                   ? 'w-2 bg-emerald-500'
                   : 'w-2 bg-slate-200'
@@ -136,11 +136,11 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
                 <button
                   key={item.id}
                   onClick={() => handleSelect('style', item.id)}
-                  className="p-4 rounded-2xl border border-slate-200 hover:border-[#0052B4] hover:bg-blue-50/50 text-right transition-all group flex items-start gap-3 cursor-pointer shadow-xs"
+                  className="p-4 rounded-2xl border border-slate-200 hover:border-[#1A1A1A] hover:bg-[#F7F3EE] text-right transition-all group flex items-start gap-3 cursor-pointer shadow-xs"
                 >
                   <span className="text-2xl">{item.icon}</span>
                   <div>
-                    <div className="font-bold text-slate-900 group-hover:text-[#0052B4] text-sm">
+                    <div className="font-bold text-slate-900 group-hover:text-[#1A1A1A] text-sm">
                       {item.title}
                     </div>
                     <div className="text-xs text-slate-500 mt-0.5">{item.desc}</div>
@@ -167,9 +167,9 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
                 <button
                   key={item.id}
                   onClick={() => handleSelect('room', item.id)}
-                  className="p-4 rounded-2xl border border-slate-200 hover:border-[#0052B4] hover:bg-blue-50/50 text-right transition-all group cursor-pointer shadow-xs"
+                  className="p-4 rounded-2xl border border-slate-200 hover:border-[#1A1A1A] hover:bg-[#F7F3EE] text-right transition-all group cursor-pointer shadow-xs"
                 >
-                  <div className="font-bold text-slate-900 group-hover:text-[#0052B4] text-sm">
+                  <div className="font-bold text-slate-900 group-hover:text-[#1A1A1A] text-sm">
                     {item.title}
                   </div>
                   <div className="text-xs text-slate-500 mt-0.5">{item.desc}</div>
@@ -217,7 +217,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
             animate={{ opacity: 1, scale: 1 }}
             className="space-y-6"
           >
-            <div className="bg-gradient-to-br from-blue-50 to-orange-50/50 p-6 rounded-3xl border border-blue-100 text-right">
+            <div className="bg-gradient-to-br from-[#F7F3EE] to-orange-50/50 p-6 rounded-3xl border border-[#E8DCCB] text-right">
               <div className="flex items-center justify-between mb-3">
                 <span className="text-xs font-bold text-[#FF8A00] bg-white px-3 py-1 rounded-full shadow-xs">
                   النتيجة المقترحة خصيصاً لذوقك
@@ -231,7 +231,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
                 </button>
               </div>
 
-              <h4 className="text-xl sm:text-2xl font-black text-[#003682] mb-1">
+              <h4 className="text-xl sm:text-2xl font-black text-[#1A1A2E] mb-1">
                 {result.title}
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 mb-6">
@@ -273,7 +273,7 @@ export const ColorMoodQuiz: React.FC<ColorMoodQuizProps> = ({ onApplyRecommendat
                 </div>
               </div>
 
-              <div className="bg-white/80 p-4 rounded-2xl border border-blue-100 text-xs sm:text-sm text-slate-700 leading-relaxed mb-6">
+              <div className="bg-white/80 p-4 rounded-2xl border border-[#E8DCCB] text-xs sm:text-sm text-slate-700 leading-relaxed mb-6">
                 💡 <span className="font-bold">نصيحة المهندس:</span> {result.recommendation}
               </div>
 

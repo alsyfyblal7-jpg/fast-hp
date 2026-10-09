@@ -8,8 +8,8 @@ export const KeyMetrics: React.FC = () => {
       icon: <Check className="w-6 h-6 stroke-[2.5]" />,
       value: '+1500',
       label: 'مشروع منجز بالمملكة',
-      bgClass: 'bg-blue-50 text-[#0052B4]',
-      hoverGlow: 'hover:border-blue-300',
+      bgClass: 'bg-[#F5EFE7] text-[#1A1A1A]',
+      hoverGlow: 'hover:border-[#D8C29D]',
     },
     {
       icon: <Clock className="w-6 h-6 stroke-[2.5]" />,
@@ -51,7 +51,7 @@ export const KeyMetrics: React.FC = () => {
               {item.icon}
             </div>
             <div>
-              <div className="text-2xl lg:text-3xl font-black text-[#003682] tabular-nums tracking-tight">
+              <div className="text-2xl lg:text-3xl font-black text-[#1A1A2E] tabular-nums tracking-tight">
                 {item.value}
               </div>
               <div className="text-xs sm:text-sm text-slate-500 font-semibold mt-0.5">

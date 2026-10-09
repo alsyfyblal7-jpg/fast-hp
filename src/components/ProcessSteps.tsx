@@ -8,15 +8,15 @@ export const ProcessSteps: React.FC = () => {
       num: '01',
       title: 'طلب المعاينة',
       desc: 'تواصل معنا عبر واتساب أو الهاتف أو النموذج المباشر، وسيرد عليك مهندس التشطيبات خلال دقائق لتحديد موعد يناسبك.',
-      colorClass: 'bg-[#0052B4]',
-      borderClass: 'hover:border-blue-300',
+      colorClass: 'bg-[#1A1A1A]',
+      borderClass: 'hover:border-[#D8C29D]',
     },
     {
       num: '02',
       title: 'المعاينة الفنية المجانية',
       desc: 'زيارة مجانية للموقع لرفع المقاسات وفحص حالة الجدران والرطوبة بدقة متناهية، وتقديم عرض سعر تفصيلي بدون أي التزام.',
-      colorClass: 'bg-[#0052B4]',
-      borderClass: 'hover:border-blue-300',
+      colorClass: 'bg-[#1A1A1A]',
+      borderClass: 'hover:border-[#D8C29D]',
     },
     {
       num: '03',
@@ -41,7 +41,7 @@ export const ProcessSteps: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs font-bold text-[#0052B4] bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100"
+          className="text-xs font-bold text-[#1A1A1A] bg-[#F7F3EE] px-3.5 py-1.5 rounded-full border border-[#E8DCCB]"
         >
           آلية العمل السلسة
         </motion.span>
@@ -50,7 +50,7 @@ export const ProcessSteps: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl font-extrabold text-[#003682] mt-3"
+          className="text-3xl sm:text-4xl font-extrabold text-[#1A1A2E] mt-3"
         >
           4 خطوات سهلة لتجديد منزلك
         </motion.h2>
@@ -82,7 +82,7 @@ export const ProcessSteps: React.FC = () => {
             <div className={`w-10 h-10 rounded-2xl ${step.colorClass} text-white text-sm font-black flex items-center justify-center mb-4 shadow-xs group-hover:scale-110 transition-transform`}>
               {idx + 1}
             </div>
-            <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-[#0052B4] transition-colors">
+            <h3 className="text-base font-bold text-slate-900 mb-2 group-hover:text-[#1A1A1A] transition-colors">
               {step.title}
             </h3>
             <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">

@@ -11,7 +11,7 @@ export const Reviews: React.FC = () => {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xs font-bold text-[#0052B4] bg-blue-50 px-3.5 py-1.5 rounded-full border border-blue-100"
+          className="text-xs font-bold text-[#1A1A1A] bg-[#F7F3EE] px-3.5 py-1.5 rounded-full border border-[#E8DCCB]"
         >
           تجارب العملاء
         </motion.span>
@@ -20,7 +20,7 @@ export const Reviews: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl font-extrabold text-[#003682] mt-3"
+          className="text-3xl sm:text-4xl font-extrabold text-[#1A1A2E] mt-3"
         >
           ثقة متبادلة وتقييمات نفخر بها
         </motion.h2>
@@ -44,7 +44,7 @@ export const Reviews: React.FC = () => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5, delay: idx * 0.12 }}
             whileHover={{ y: -8, scale: 1.01 }}
-            className="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-100 relative hover:border-blue-300 hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-default"
+            className="bg-white rounded-3xl p-6 sm:p-8 shadow-card border border-slate-100 relative hover:border-[#D8C29D] hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-default"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -64,14 +64,14 @@ export const Reviews: React.FC = () => {
               </div>
 
               <div className="relative">
-                <Quote className="w-8 h-8 text-blue-100 absolute -top-3 -right-2 pointer-events-none" />
+                <Quote className="w-8 h-8 text-[#F5EFE7] absolute -top-3 -right-2 pointer-events-none" />
                 <p className="text-xs sm:text-sm text-slate-600 leading-relaxed italic bg-slate-50/90 p-4 rounded-2xl border border-slate-100 mb-4 relative z-10">
                   "{t.comment}"
                 </p>
               </div>
             </div>
 
-            <div className="pt-3 border-t border-slate-100 text-xs text-[#0052B4] font-semibold flex items-center gap-2">
+            <div className="pt-3 border-t border-slate-100 text-xs text-[#1A1A1A] font-semibold flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-[#FF8A00]" />
               <span>المشروع: {t.projectType}</span>
             </div>
